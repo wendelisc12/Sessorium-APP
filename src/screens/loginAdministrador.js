@@ -10,9 +10,9 @@ import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function login({navigation}) {
+export default function loginAdministrador() {
 
-    const [login, setLogin] = useState("")
+    const [cnpj, setCnpj] = useState("")
     const [senha, setSenha] = useState("")
 
     const firebaseConfig = {
@@ -27,7 +27,7 @@ export default function login({navigation}) {
 
     function loginFirebase() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, login, senha)
+        signInWithEmailAndPassword(auth, cnpj, senha)
             .then((userCredential) => {
                 console.log('conectado')
                 const user = userCredential.user;
@@ -44,21 +44,22 @@ export default function login({navigation}) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.logoContainer}>
-                <Image
-                    style={styles.imagemPerfil}
-                    source={{
-                        require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                    }}
-                />
-
-            </View>
+            
 
             <View style={styles.formContainer}>
+                <View style={styles.logoContainer}>
+                    <Text>Sessorium</Text>
+                    <Image
+                        style={styles.imagemPerfil}
+                        source={{
+                            require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
+                        }}
+                    />
 
+                </View>
                 <View>
-                    <Text style={styles.label}>Login:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default" value={login} onChange={login => setLogin(login)} />
+                    <Text style={styles.label}>CNPJ:</Text>
+                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" value={cnpj} onChange={cnpj => setCnpj(cnpj)} />
 
                     <Text style={styles.label}>Senha:</Text>
                     <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
@@ -72,7 +73,7 @@ export default function login({navigation}) {
 
 
                 <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('loginAdministrador') } }>Você é um administrador?</Text>
+                    <Text style={styles.link}>Registrar nova escola</Text>
 
                 </View>
             </View>
@@ -86,14 +87,13 @@ export default function login({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#EFEFEF",
+        backgroundColor: "#32E535",
         alignItems: 'center',
         justifyContent: 'space-between',
     },
 
     logoContainer: {
         top: 0,
-        height: '40%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
 
     formContainer: {
         width: '100%',
-        height: '60%',
+        height: '100%',
         bottom: 0,
         backgroundColor: '#fff',
         borderTopLeftRadius: 30,
