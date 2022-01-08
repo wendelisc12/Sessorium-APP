@@ -14,16 +14,23 @@ export default function cadastrarcoordenador() {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
-    const [telefone, setTelefone] = useState("")
-    const [cep, setCep] = useState("")
-    const [estado, setEstado] = useState("")
-    const [cidade, setCidade] = useState("")
-    const [bairro, setBairro] = useState("")
-    const [endereco, setEndereco] = useState("")
-    const [numero, setNumero] = useState("")
-    const [cnpj, setCnpj] = useState("")
-    const [senha, setSenha] = useState("")
-    const [confirmasenha, setConfirmaSenha] = useState("")
+    const [cpf, setcpf] = useState("")
+    const [data_nascimento, setdata_nascimento] = useState("")
+    const [telefone, settelefone] = useState("")
+    const [instituicao, setinstituicao] = useState("")
+    const [curso, setcurso] = useState("")
+    const [formacao, setformacao] = useState("")
+    const [data_inicio, setdata_inicio] = useState("")
+    const [data_conclusao, setdata_conclusao] = useState("")
+    const [siape, setsiape] = useState("")
+    const [endereco, setendereco] = useState("")
+    const [uf, setuf] = useState("")
+    const [cidade, setcidade] = useState("")
+    const [bairro, setbairro] = useState("")
+    const [complemento, setcomplemento] = useState("")
+    const [numero, setnumero] = useState("")
+    const [senha, setsenha] = useState("")
+    const [confirmarsenha, setconfirmarsenha] = useState("")
 
 
     const firebaseConfig = {
@@ -69,46 +76,69 @@ export default function cadastrarcoordenador() {
 
                 </View>
                 <View>
-                    <Text style={styles.titulos}>Informações básicas</Text>
+                    <Text style={styles.titulos}>Adicione um professor</Text>
                     <Text style={styles.label}>Nome: </Text>
                     <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nome} onChange={nome=> setNome(nome)} />
 
                     <Text style={styles.label}>Email: </Text>
                     <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={email} onChange={email => setEmail(email)} />
 
+                    <Text style={styles.label}>CPF: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChange={cpf => setcpf(cpf)} />
+
+                    <Text style={styles.label}>Data de nascimento: </Text>
+                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={data_nascimento} onChange={data_nascimento => setdata_nascimento(data_nascimento)} />
+
                     <Text style={styles.label}>Telefone: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o Telefone" keyboardType="default" value={telefone} onChange={telefone => setTelefone(telefone)} />
+                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChange={telefone => settelefone(telefone)} />
                     
-                    <Text style={styles.titulos}>Endereço da instituição </Text>
+                    <Text style={styles.titulos}>Informações acadêmicas </Text>
                     
-                    <Text style={styles.label}>CEP: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o CEP" keyboardType="default" value={cep} onChange={cep => setCep(cep)} />
+                    <Text style={styles.label}>Instituição: </Text>
+                    <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituicao} onChange={instituicao => setinstituicao(instituicao)} />
 
-                    <Text style={styles.label}>Estado: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o estado" keyboardType="default" value={estado} onChange={estado => setEstado(estado)} />
+                    <Text style={styles.label}>Curso: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChange={curso => setcurso(curso)} />
 
-                    <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a cidade" keyboardType="default" value={cidade} onChange={cidade => setCidade(cidade)} />
+                    <Text style={styles.label}>Formação: </Text>
+                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChange={formacao => setformacao(formacao)} />
                     
-                    <Text style={styles.label}>Bairro: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o bairro" keyboardType="default" value={bairro} onChange={bairro => setBairro(bairro)} />
+                    <Text style={styles.label}>Data de inicio: </Text>
+                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={data_inicio} onChange={data_inicio => setdata_inicio(data_inicio)} />
+
+                    <Text style={styles.label}>Data de conclusão: </Text>
+                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={data_conclusao} onChange={data_conclusao => setdata_conclusao(data_conclusao)} />
+
+                    <Text style={styles.label}>Siape: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape} onChange={siape => setsiape(siape)} />
+
+                    <Text style={styles.titulos}>Endereço</Text>
 
                     <Text style={styles.label}>Endereço: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o endereço" keyboardType="default" value={endereco} onChange={endereco => setEndereco(endereco)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={endereco} onChange={endereco => setendereco(endereco)} />
+                    
+                    <Text style={styles.label}>UF: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={uf} onChange={uf => setuf(uf)} />
+
+                    <Text style={styles.label}>Cidade: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChange={cidade => setcidade(cidade)} />
+                     
+                    <Text style={styles.label}>Bairro: </Text>
+                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChange={bairro => setbairro(bairro)} />
+                     
+                    <Text style={styles.label}>complemento: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChange={complemento => setcomplemento(complemento)} />
 
                     <Text style={styles.label}>Número: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o Número" keyboardType="default" value={numero} onChange={endereco => setNumero(numero)} />
+                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChange={numero => setnumero(numero)} />
 
-                    <Text style={styles.titulos}>Informações importantes</Text>
+                    <Text style={styles.titulos}>Acesso</Text>
 
-                    <Text style={styles.label}>CNPJ: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o CNPJ" keyboardType="default" value={cnpj} onChange={cnpj => setCnpj(cnpj)} />
-                    
                     <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setsenha(senha)} />
 
                     <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme a senha" keyboardType="default" value={confirmasenha} onChange={confirmasenha => setConfirmaSenha(confirmasenha)} />
+                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default" value={confirmarsenha} onChange={confirmarsenha => setconfirmarsenha(confirmarsenha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
