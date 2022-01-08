@@ -1,7 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
+  const [nome, setnome] = useState("")
+  const [turno, setturno] = useState("")
+  const [ano, setano] = useState("")
+  const [semestre, setsemestre] = useState("")
+  const [total_de_meses, settotal_de_meses] = useState("")
+
   return (
     <View style={styles.container}>
        <Text style={styles.Sessorium_logo}>Sessorium</Text>
@@ -9,36 +16,24 @@ export default function App() {
        <Text style={styles.titulo}>Adicione uma Turma</Text>
 
        <Text style={styles.inputNome_text}>Nome:</Text>
-        
-        <TextInput style={styles.input}
-        placeholder='Nome'
-        placeholderTextColor={'gray'}
-        ></TextInput>
-        <Text style={styles.inputTurno_text}>Turno:</Text>
-
-       <TextInput style={styles.input}
-        placeholder='Turno'
-        placeholderTextColor={'gray'}
-       ></TextInput>
-      
-         
-        <Text style={styles.inputAno_text}>Ano:</Text>
-
-        <TextInput style={styles.input}
-        placeholder='Ano'
-        placeholderTextColor={'gray'}
-        ></TextInput>
-        
-        <Text style={styles.inputSemestre_text}>Semestre:</Text>
-        <TextInput style={styles.input}  placeholder='Semestre'  placeholderTextColor={'gray'} ></TextInput>
+        <TextInput style={styles.input}  placeholder='Nome'  placeholderTextColor={'gray'} value={nome} keyboardType='default' onChange={nome => setnome(nome)}></TextInput>
        
 
+        <Text style={styles.inputTurno_text}>Turno:</Text>
+       <TextInput style={styles.input} placeholder='Turno' placeholderTextColor={'gray'} value={turno} keyboardType='default'  onChange={turno => setturno(turno)}></TextInput>
+         
+
+        <Text style={styles.inputAno_text}>Ano:</Text>
+        <TextInput style={styles.input} placeholder='Ano' placeholderTextColor={'gray'} value={ano} keyboardType='default' onChange={ano => setano(ano)}></TextInput>
+
+        
+        <Text style={styles.inputSemestre_text}>Semestre:</Text>
+        <TextInput style={styles.input} placeholder='Semestre' placeholderTextColor={'gray'} value={semestre} keyboardType='default' onChange={semestre => setsemestre(semestre)}></TextInput>
+        
+        
         <View style={styles.total_meses}>
         <Text style={styles.inputMeses_text}>Total de meses:</Text>
-        <TextInput style={styles.input}
-        placeholder='total de meses'
-        placeholderTextColor={'gray'}
-        ></TextInput>
+        <TextInput style={styles.input} placeholder='total de meses' placeholderTextColor={'gray'} value={total_de_meses} keyboardType='default' onChange={total_de_meses => settotal_de_meses(total_de_meses)} ></TextInput>
         </View>
         
 
