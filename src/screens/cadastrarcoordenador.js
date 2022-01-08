@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function registrarescola() {
+export default function cadastrarcoordenador() {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 5
     },
-
+    
     titulos:{
         textAlign: 'center',
         marginTop: 20,
