@@ -30,10 +30,8 @@ export default function App() {
         ></TextInput>
         
         <Text style={styles.inputSemestre_text}>Semestre:</Text>
-        <TextInput style={styles.input}
-        placeholder='Semestre'
-        placeholderTextColor={'gray'}
-        ></TextInput>
+        <TextInput style={styles.input}  placeholder='Semestre'  placeholderTextColor={'gray'} ></TextInput>
+       
 
         <View style={styles.total_meses}>
         <Text style={styles.inputMeses_text}>Total de meses:</Text>
