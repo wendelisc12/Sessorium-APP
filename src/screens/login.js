@@ -58,10 +58,10 @@ export default function login({navigation}) {
 
                 <View>
                     <Text style={styles.label}>Login:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default" value={login} onChange={login => setLogin(login)} />
+                    <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default"  onChange={login => setLogin(login)} />
 
                     <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default"  onChange={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>

@@ -59,10 +59,10 @@ export default function loginAdministrador() {
                 </View>
                 <View>
                     <Text style={styles.label}>CNPJ:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" value={cnpj} onChange={cnpj => setCnpj(cnpj)} />
+                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" onChange={cnpj => setCnpj(cnpj)} />
 
                     <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default"  onChange={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>

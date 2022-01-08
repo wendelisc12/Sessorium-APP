@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,18 +8,21 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import login from './src/screens/login';
 import loginAdministrador from './src/screens/loginAdministrador';
 import registrarescola from './src/screens/registrarescola';
-import cadastrarcoordenador from './src/screens/cadastrarcoordenador';
+import cadastrarcoordenador from './src/screens/cadastrarCoordenador';
+import cadastrarprofessor from './src/screens/cadastrarProfessor';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="cadastrarcoordenador">
+      <Stack.Navigator initialRouteName="login">
         <Stack.Screen name="login" component={login} options={{headerShown: false}} />
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{ title:""}} />
         <Stack.Screen name="registrarescola" component={registrarescola} options={{ title:""}} />
         <Stack.Screen name="cadastrarcoordenador" component={cadastrarcoordenador} options={{ title:""}} />
+        <Stack.Screen name="cadastrarprofessor" component={cadastrarprofessor} options={{ title:""}} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
