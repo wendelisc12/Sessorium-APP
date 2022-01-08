@@ -45,7 +45,7 @@ export default function cadastrarprofessor() {
 
     function loginFirebase() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, nome, email, telefone,cep, estado, cidade, bairro, endereco, numero, cnpj, senha, confirmasenha)
+        signInWithEmailAndPassword(auth, nome, email, telefone,cep, estado, cidade, bairro, numero, cnpj, senha, confirmasenha)
             .then((userCredential) => {
                 console.log('conectado')
                 const user = userCredential.user;
