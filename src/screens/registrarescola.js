@@ -118,10 +118,7 @@ export default function registrarescola() {
                 </View>
 
 
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link}>Registrar nova escola</Text>
-
-                </View>
+               
             </View>
 
 
@@ -198,6 +195,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         marginTop: 20,
+        marginBottom: 20,
         alignItems: 'center'
     },
 
