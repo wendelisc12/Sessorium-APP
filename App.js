@@ -7,25 +7,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import login from './src/screens/login';
 import loginAdministrador from './src/screens/loginAdministrador';
-import registrarescola from './src/screens/registrarescola';
-import cadastrarcoordenador from './src/screens/cadastrarCoordenador';
-import cadastrarprofessor from './src/screens/cadastrarProfessor';
-import telaAluno from './src/screens/telaAluno';
-import turmas from './src/screens/turmas';
+import registrarEscola from './src/screens/registrarEscola';
+import cadastrarCoordenador from './src/screens/cadastrarCoordenador';
+import cadastrarProfessor from './src/screens/cadastrarProfessor';
+import inicioAluno from './src/pages-aluno/inicial'
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="telaAluno">
+      <Stack.Navigator initialRouteName="inicioAluno">
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
-        <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{ title:""}, {headerShown: false}} />
-        <Stack.Screen name="registrarescola" component={registrarescola} options={{ title:""}, {headerShown: false}} />
-        <Stack.Screen name="cadastrarcoordenador" component={cadastrarcoordenador} options={{ title:""}, {headerShown: false}} />
-        <Stack.Screen name="cadastrarprofessor" component={cadastrarprofessor} options={{ title:""}, {headerShown: false}} />
-        <Stack.Screen name="telaAluno" component={telaAluno} options={{ title:""}, {headerShown: false}} />
-        <Stack.Screen name="turmas" component={turmas} options={{ title:""}, {headerShown: false}} />
+        <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
+        <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />
+        <Stack.Screen name="cadastrarCoordenador" component={cadastrarCoordenador} options={{headerShown: false}} />
+        <Stack.Screen name="cadastrarProfessor" component={cadastrarProfessor} options={{headerShown: false}} />
+        <Stack.Screen name="inicioAluno" component={inicioAluno} options={{headerShown: false}} />
 
 
       </Stack.Navigator>

@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { initializeApp } from "firebase/app";
+import { appRoutes } from '../routes/app-routes';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,41 +45,8 @@ export default function loginAdministrador({navigation}) {
 
     return (
         <View style={styles.container}>
-            
-
-            <View style={styles.formContainer}>
-                <View style={styles.logoContainer}>
-                    <Text>Sessorium</Text>
-                    <Image
-                        style={styles.imagemPerfil}
-                        source={{
-                            require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                        }}
-                    />
-
-                </View>
-                <View>
-                    <Text style={styles.label}>CNPJ:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" onChange={cnpj => setCnpj(cnpj)} />
-
-                    <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default"  onChange={senha => setSenha(senha)} />
-
-                    <View style={styles.botaoEntrarContainer}>
-                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
-                            <Text style={styles.botaoEntrarTexto}>Entrar</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
-
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('cadastrarCoordenador') } }>Registrar nova escola</Text>
-
-                </View>
-            </View>
-
-
+            <Text>Teste</Text>
+            <appRoutes />
 
         </View>
     );
