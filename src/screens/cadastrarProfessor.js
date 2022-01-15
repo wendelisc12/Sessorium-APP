@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function cadastrarprofessor() {
+export default function cadastrarProfessor() {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")

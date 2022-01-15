@@ -10,20 +10,25 @@ import loginAdministrador from './src/screens/loginAdministrador';
 import registrarEscola from './src/screens/registrarEscola';
 import cadastrarCoordenador from './src/screens/cadastrarCoordenador';
 import cadastrarProfessor from './src/screens/cadastrarProfessor';
-import inicioAluno from './src/pages-aluno/inicial'
+import Turmas from './src/pages-aluno/turmas';
+import telaAluno from './src/screens/telaAluno';
+import AtividadesPendentes from './src/pages-aluno/atividadesPendentes';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="inicioAluno">
+      <Stack.Navigator initialRouteName="telaAluno">
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />
         <Stack.Screen name="cadastrarCoordenador" component={cadastrarCoordenador} options={{headerShown: false}} />
         <Stack.Screen name="cadastrarProfessor" component={cadastrarProfessor} options={{headerShown: false}} />
-        <Stack.Screen name="inicioAluno" component={inicioAluno} options={{headerShown: false}} />
+        <Stack.Screen name="turmas" component={Turmas} options={{headerShown: false}} />
+        <Stack.Screen name="telaAluno" component={telaAluno} options={{headerShown: false}} />
+        <Stack.Screen name="atividadesPendentes" component={AtividadesPendentes} options={{headerShown: false}} />
 
 
       </Stack.Navigator>
