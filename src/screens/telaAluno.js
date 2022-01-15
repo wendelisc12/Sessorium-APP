@@ -7,6 +7,7 @@ import Turmas from '../pages-aluno/turmas';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Titulo from '../pages-aluno/titulo';
 
 
 
@@ -18,10 +19,10 @@ export default function telaAluno() {
    
     return (
         <View style={styles.container}>
-           <View >
-           <Image source={{uri: 'https://github.com/wendelisc12/Sessorium-APP/blob/main/assets/sessoriulogo.png?raw=true'}}
-            style={{width: 200, height: 100}} />
-           </View>
+            
+            <Titulo/>
+            
+          
 
             <View style={styles.turmasContainer}>
                 <View style={{marginBottom: 30}}> 
