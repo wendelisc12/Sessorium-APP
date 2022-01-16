@@ -10,9 +10,9 @@ import loginAdministrador from './src/screens/loginAdministrador';
 import registrarEscola from './src/screens/registrarEscola';
 import cadastrarCoordenador from './src/screens/cadastrarCoordenador';
 import cadastrarProfessor from './src/screens/cadastrarProfessor';
-import Turmas from './src/pages-aluno/turmas';
+import Turmas from './src/componentes/turmas';
 import telaAluno from './src/screens/telaAluno';
-import AtividadesPendentes from './src/pages-aluno/atividadesPendentes';
+import AtividadesPendentes from './src/componentes/atividadesPendentes';
 
 
 const Stack = createNativeStackNavigator();

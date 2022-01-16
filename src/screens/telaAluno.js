@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
-import AtividadesPendentes from '../pages-aluno/atividadesPendentes';
-import Turmas from '../pages-aluno/turmas';
+import AtividadesPendentes from '../componentes/atividadesPendentes';
+import Turmas from '../componentes/turmas';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import Titulo from '../pages-aluno/titulo';
 
 
 
@@ -20,8 +19,8 @@ export default function telaAluno() {
     return (
         <View style={styles.container}>
             
-           <View>
-               
+           <View style={styles.containerTitulo}>
+               <Text style={styles.titulo}>Sessorium</Text>
            </View>
             
           
@@ -55,7 +54,10 @@ const styles = StyleSheet.create({
     containerTitulo:{
         alignItems: 'center',
         justifyContent:'center',
-        height:100
+        height:100,
+        position: 'sticky',
+        top: 0,
+        
         
     },
 
