@@ -20,7 +20,9 @@ export default function telaAluno() {
     return (
         <View style={styles.container}>
             
-            <Titulo/>
+           <View>
+               
+           </View>
             
           
 
