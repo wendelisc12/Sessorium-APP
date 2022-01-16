@@ -3,10 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import AtividadesPendentes from '../componentes/atividadesPendentes';
 import Turmas from '../componentes/turmas';
-
+import Routes from '../routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 
 
@@ -17,6 +17,7 @@ export default function telaAluno() {
 
    
     return (
+
         <View style={styles.container}>
             
            <View style={styles.containerTitulo}>
@@ -36,7 +37,8 @@ export default function telaAluno() {
                 
 
             </View>
-
+        
+            
 
 
         </View>
@@ -64,6 +66,8 @@ const styles = StyleSheet.create({
     turmasContainer:{
         backgroundColor: 'white',
         width:'100%',
+        height: '95vh',
+        bottom: 3,
         margin:10,
         padding:20,
         borderTopLeftRadius:30,

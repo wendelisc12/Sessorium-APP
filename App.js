@@ -13,6 +13,7 @@ import cadastrarProfessor from './src/screens/cadastrarProfessor';
 import Turmas from './src/componentes/turmas';
 import telaAluno from './src/screens/telaAluno';
 import AtividadesPendentes from './src/componentes/atividadesPendentes';
+import Routes from './src/routes';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,7 +21,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="telaAluno">
+      {/* <Stack.Navigator initialRouteName="telaAluno">
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />
@@ -30,8 +31,10 @@ export default function App() {
         <Stack.Screen name="telaAluno" component={telaAluno} options={{headerShown: false}} />
         <Stack.Screen name="atividadesPendentes" component={AtividadesPendentes} options={{headerShown: false}} />
 
+        
 
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+      <Routes/>
     </NavigationContainer>
   );
 }
