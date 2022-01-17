@@ -12,11 +12,11 @@ const Tab = createBottomTabNavigator();
 export default function TelaAuloRotas(){
     return(
         <Tab.Navigator>
-            <Tab.Screen name="Inicio" component={telaAluno}/>
-            <Tab.Screen name="Boletim" component={Boletim}/>
-            <Tab.Screen name="Calendario" component={Calendario}/>
-            <Tab.Screen name="Chat" component={Chat}/>
-            <Tab.Screen name="Perfil" component={Perfil}/>
+            <Tab.Screen name="Inicio" component={telaAluno} options={{headerShown: false}}/>
+            <Tab.Screen name="Boletim" component={Boletim} options={{headerShown: false}}/>
+            <Tab.Screen name="Calendario" component={Calendario} options={{headerShown: false}}/>
+            <Tab.Screen name="Chat" component={Chat} options={{headerShown: false}}/>
+            <Tab.Screen name="Perfil" component={Perfil} options={{headerShown: false}}/>
         </Tab.Navigator>
     )
 }

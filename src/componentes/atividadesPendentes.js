@@ -9,7 +9,7 @@ const AtividadesPendentes = () => (
     <View>
         <Card>
             <Card.Content>
-                <Title>Atividades pendentes </Title>
+                <Title>Atividades pendentes</Title>
                 <Paragraph>Aviso:</Paragraph>
             </Card.Content>
             <Card.Actions>

@@ -7,10 +7,6 @@ import Routes from '../screens/TelaAlunoRotas';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
-
-
-
 const Stack = createNativeStackNavigator();
 
 export default function telaAluno() {
@@ -27,11 +23,12 @@ export default function telaAluno() {
           
 
             <View style={styles.turmasContainer}>
-                <View> 
+                <TouchableOpacity style={styles.muralAvisos}> 
                     <AtividadesPendentes/>
-                </View>
+                </TouchableOpacity>
 
-                <Turmas/>
+                <TouchableOpacity style={styles.turma}><Turmas/></TouchableOpacity>
+                
                 
                 
 
@@ -66,8 +63,9 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-       fontSize:30,
-       position:'sticky',
+       height: 150,
+       display: 'flex',
+       alignItems: 'center'
     },
 
    
@@ -83,5 +81,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+
+    turma:{
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+        marginTop: 30,
+        marginBottom: 30,
+        boxShadow: '2px 2px 5px #B4B4B4',
+    },
+
 
 });
