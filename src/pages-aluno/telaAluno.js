@@ -9,7 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-export default function telaAluno() {
+export default function telaAluno({navigation}) {
 
    
     return (

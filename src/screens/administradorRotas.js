@@ -6,6 +6,7 @@ import Funcionarios from '../page-administrador/funcionarios';
 import Painel from '../page-administrador/painel';
 import Salas from '../page-administrador/salas';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function TelaAuloRotas(){
