@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import AtividadesPendentes from '../componentes/atividadesPendentes';
 import Turmas from '../componentes/turmas';
-import Routes from '../routes';
+import Routes from '../screens/TelaAlunoRotas';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -20,20 +20,19 @@ export default function telaAluno() {
 
         <View style={styles.container}>
             
-           <View style={styles.containerTitulo}>
-               <Text style={styles.titulo}>Sessorium</Text>
-           </View>
+           
+            <Text style={styles.titulo}>Sessorium</Text>
+           
             
           
 
             <View style={styles.turmasContainer}>
-                <View style={{marginBottom: 30}}> 
+                <View> 
                     <AtividadesPendentes/>
                 </View>
 
                 <Turmas/>
-                <Turmas/>
-                <Turmas/>
+                
                 
 
             </View>
@@ -50,23 +49,15 @@ const styles = StyleSheet.create({
         backgroundColor: "#EFEFEF",
         alignItems: 'center',
         justifyContent: 'space-between',
-        display:'flex'
+        display:'flex',
+        
     },
 
-    containerTitulo:{
-        alignItems: 'center',
-        justifyContent:'center',
-        height:100,
-        position: 'sticky',
-        top: 0,
-        
-        
-    },
+   
 
     turmasContainer:{
         backgroundColor: 'white',
         width:'100%',
-        height: '95vh',
         bottom: 3,
         margin:10,
         padding:20,
@@ -75,7 +66,8 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-       fontSize:30
+       fontSize:30,
+       position:'sticky',
     },
 
    
