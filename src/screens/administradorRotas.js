@@ -5,6 +5,8 @@ import Alunos from '../page-administrador/alunos';
 import Funcionarios from '../page-administrador/funcionarios';
 import Painel from '../page-administrador/painel';
 import Salas from '../page-administrador/salas';
+import AlunoDetalhes from '../page-administrador/alunoDetalhes';
+import AdicionarAluno from '../page-administrador/adicionarAluno';
 
 
 const Tab = createBottomTabNavigator();
@@ -16,6 +18,8 @@ export default function TelaAuloRotas(){
             <Tab.Screen name="Funcionários" component={Funcionarios} options={{headerShown: false}}/>
             <Tab.Screen name="Salas" component={Salas} options={{headerShown: false}}/>
             <Tab.Screen name="Alunos" component={Alunos} options={{headerShown: false}}/>
+            <Tab.Screen name="AlunoDetalhes" component={AlunoDetalhes} options={{headerShown: false}}/>
+            <Tab.Screen name="AdicionarAluno" component={AdicionarAluno} options={{headerShown: false}}/>
         </Tab.Navigator>
     )
 }

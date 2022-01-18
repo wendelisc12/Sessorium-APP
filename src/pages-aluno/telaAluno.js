@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput,ScrollView, Image, TouchableOpacity } from 'react-native';
 import AtividadesPendentes from '../componentes/atividadesPendentes';
 import Turmas from '../componentes/turmas';
 import Routes from '../screens/TelaAlunoRotas';
@@ -22,7 +22,7 @@ export default function telaAluno({navigation}) {
             
           
 
-            <View style={styles.turmasContainer}>
+            <ScrollView style={styles.turmasContainer}>
                 <TouchableOpacity style={styles.muralAvisos}> 
                     <AtividadesPendentes/>
                 </TouchableOpacity>
@@ -32,7 +32,7 @@ export default function telaAluno({navigation}) {
                 
                 
 
-            </View>
+            </ScrollView>
         
             
 

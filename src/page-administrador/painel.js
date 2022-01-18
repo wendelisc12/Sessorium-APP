@@ -25,11 +25,11 @@ export default function Painel({navigation}) {
                 </View>
                   <Text style={{marginBottom: 10}}>Adicione os funcionários da sua instituição</Text>
                   <View>
-                    <TouchableOpacity style={styles.adicionarBotao} onPress={navigation.navigate('cadastrarProfessor')}>
+                    <TouchableOpacity style={styles.adicionarBotao} onPress={()=>{navigation.navigate('cadastrarProfessor')}}>
                       <Text style={{color: 'white', fontSize: 18, fontWeight: 600}}>Adicionar professor</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.adicionarBotao} onPress={navigation.navigate('cadastrarCoordenador') }>
+                    <TouchableOpacity style={styles.adicionarBotao} onPress={()=>{navigation.navigate('cadastrarCoordenador') }}>
                       <Text style={{color: 'white', fontSize: 18, fontWeight: 600}}>Adicionar coordenador</Text>
                     </TouchableOpacity>
                   </View>

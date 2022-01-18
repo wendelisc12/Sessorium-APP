@@ -15,6 +15,7 @@ import telaAluno from './src/pages-aluno/telaAluno';
 import AtividadesPendentes from './src/componentes/atividadesPendentes';
 import TelaAlunoRotas from './src/screens/TelaAlunoRotas';
 import administradorRotas from './src/screens/administradorRotas'
+import AlunoDetalhes from './src/page-administrador/alunoDetalhes';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="administradorRotas">
+       <Stack.Navigator initialRouteName="alunoDetalhes">
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />
@@ -33,6 +34,7 @@ export default function App() {
         <Stack.Screen name="atividadesPendentes" component={AtividadesPendentes} options={{headerShown: false}} />
         <Stack.Screen name="telaAlunoRotas" component={TelaAlunoRotas} options={{headerShown: false}} />
         <Stack.Screen name="administradorRotas" component={administradorRotas} options={{headerShown: false}} />
+        <Stack.Screen name="alunoDetalhes" component={AlunoDetalhes} options={{headerShown: false}} />
 
         
 

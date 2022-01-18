@@ -8,7 +8,7 @@ import { List } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 
-export default function Alunos({navigation}) {
+export default function Professores({navigation}) {
 
    
     return (
@@ -17,17 +17,16 @@ export default function Alunos({navigation}) {
             <Text style={styles.titulo}>Sessorium</Text>
 
             <View style={styles.turmasContainer}>
-              <Text style={{fontSize: 20, fontWeight: 700}}>Alunos:</Text>
+              <Text style={{fontSize: 20, fontWeight: 700}}>Professores:</Text>
               <View style={{marginTop: 10}}>
                 <Text>A-Z</Text>
                 <View style={{backgroundColor: '#Cecece', height: 1, marginTop: 10}}></View>
               </View>
 
               <View>
-                <TouchableOpacity onPress={()=> {navigation.navigate('alunoDetalhes')}} style={{borderBottomColor: '#cecece', borderBottomWidth: 1}}>
+                <TouchableOpacity onPress={()=> {navigation.navigate('professorDetalhes')}} style={{borderBottomColor: '#cecece', borderBottomWidth: 1}}>
                     <List.Item
-                      title="Aluno Nome"
-                      description="Série: 2B"
+                      title="Professor Nome"
                       left={props => <List.Icon {...props} icon="account" />}
                       right={props => <List.Icon {...props} icon="pencil" />}
                     />
