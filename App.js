@@ -23,7 +23,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="alunoDetalhes">
+       <Stack.Navigator initialRouteName="telaAlunoRotas" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />

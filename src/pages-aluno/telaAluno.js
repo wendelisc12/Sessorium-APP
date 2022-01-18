@@ -1,43 +1,60 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TextInput,ScrollView, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import AtividadesPendentes from '../componentes/atividadesPendentes';
 import Turmas from '../componentes/turmas';
 import Routes from '../screens/TelaAlunoRotas';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Appbar } from 'react-native-paper';
+
+
+
+
 
 const Stack = createNativeStackNavigator();
 
-export default function telaAluno({navigation}) {
+export default function telaAluno() {
 
-   
+
     return (
-
-        <View style={styles.container}>
-            
-           
-            <Text style={styles.titulo}>Sessorium</Text>
-           
-            
-          
-
-            <ScrollView style={styles.turmasContainer}>
-                <TouchableOpacity style={styles.muralAvisos}> 
-                    <AtividadesPendentes/>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.turma}><Turmas/></TouchableOpacity>
+        <View style={{ flex: 1 }} >
+            <Appbar.Header style={{backgroundColor: 'green'}}>
                 
+                <Appbar.Content title="Sessorium"/>
                 
-                
+            </Appbar.Header>
+            <ScrollView>
+                <AtividadesPendentes />
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
+                <Turmas/>
 
             </ScrollView>
-        
-            
-
 
         </View>
+
+
+
+
+
+
     );
 }
 
@@ -46,29 +63,28 @@ const styles = StyleSheet.create({
         backgroundColor: "#EFEFEF",
         alignItems: 'center',
         justifyContent: 'space-between',
-        display:'flex',
-        
+        display: 'flex',
+
     },
 
-   
 
-    turmasContainer:{
+
+    turmasContainer: {
         backgroundColor: 'white',
-        width:'100%',
+        width: '100%',
         bottom: 3,
-        margin:10,
-        padding:20,
-        borderTopLeftRadius:30,
-        borderTopRightRadius:30,
+        margin: 10,
+        padding: 20,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
     },
 
-    titulo:{
-       height: 150,
-       display: 'flex',
-       alignItems: 'center'
+    titulo: {
+        fontSize: 30,
+        position: 'sticky',
     },
 
-   
+
 
     label: {
         marginTop: 10,
@@ -81,16 +97,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
-
-    turma:{
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        marginTop: 30,
-        marginBottom: 30,
-        boxShadow: '2px 2px 5px #B4B4B4',
-    },
-
 
 });
