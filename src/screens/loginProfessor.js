@@ -13,6 +13,7 @@ export default function App() {
         <View style={styles.formContainer}>
 
             <View>
+                <Text style={{ marginLeft: 35, fontSize: 20}}>Você está logando como Professor</Text>
                 <Text style={styles.label}>Login:</Text>
                 <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default"  onChange={login => setLogin(login)} />
 
