@@ -67,14 +67,14 @@ export default function login({navigation}) {
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
                             <Text style={styles.botaoEntrarTexto}>Entrar</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginSeletivo')  }}>
+                            <Text style={styles.botaoVoltarTexto}>voltar</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
 
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('loginAdministrador') } }>Você é um administrador?</Text>
-
-                </View>
+               
             </View>
 
 
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     botaoEntrar: {
-        width: '80%',
+        width: '100%',
         height: 44,
         backgroundColor: '#32E535',
         borderRadius: 20,
@@ -153,12 +153,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 
-    link: {
-        color: '#1D1D1D',
+    botaoVoltar: {
+        width: '100%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
         marginTop: 20,
-        textAlign: 'center',
-        textDecorationLine: "underline",
-        textDecorationStyle: "solid",
-        textDecorationColor: "#000"
-    }
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
 });

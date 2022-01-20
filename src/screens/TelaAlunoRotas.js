@@ -16,10 +16,10 @@ export default function TelaAlunoRotas(){
     return(
         <Tab.Navigator screenOptions={({ route }) => ({
            
-            tabBarActiveTintColor: 'rgb(51, 255, 0)',
-            tabBarInactiveTintColor: 'rgb(49, 49, 49)',
+            tabBarActiveTintColor: 'white',
+            tabBarInactiveTintColor: 'rgb(216, 216, 216)',
 
-            tabBarStyle:{paddingBottom: 5, paddingTop: 5, backgroundColor: 'rgb(235, 235, 235)'}
+            tabBarStyle:{paddingBottom: 5, paddingTop: 5, backgroundColor: '#32E535'}
           })}>
 
             <Tab.Screen 
@@ -49,7 +49,7 @@ export default function TelaAlunoRotas(){
             component={Perfil}
             options={{headerShown: false}, {tabBarIcon: ({ size, color }) => (
                 <Entypo name="user" size={size} color={color} />
-            )}}
+            )}} 
              />
 
         </Tab.Navigator>

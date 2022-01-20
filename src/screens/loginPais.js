@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
-export default function App() {
+export default function loginPais({navigation}) {
   return (
     <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -23,6 +23,9 @@ export default function App() {
                 <View style={styles.botaoEntrarContainer}>
                     <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
                         <Text style={styles.botaoEntrarTexto}>Entrar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginSeletivo')  }}>
+                        <Text style={styles.botaoVoltarTexto}>voltar</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -106,12 +109,22 @@ botaoEntrarTexto: {
     fontSize: 18,
 },
 
-link: {
-    color: '#1D1D1D',
+botaoVoltar: {
+    width: '100%',
+    height: 44,
+    backgroundColor: 'transparent',
+    borderRadius: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid #32E535',
     marginTop: 20,
-    textAlign: 'center',
-    textDecorationLine: "underline",
-    textDecorationStyle: "solid",
-    textDecorationColor: "#000"
-}
+    marginBottom: 40,
+},
+
+botaoVoltarTexto: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 18,
+},
 });

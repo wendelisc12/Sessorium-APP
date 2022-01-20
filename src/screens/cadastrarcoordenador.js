@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function cadastrarcoordenador() {
+export default function cadastrarCoordenador({navigation}) {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
@@ -153,6 +153,9 @@ export default function cadastrarcoordenador() {
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginAdministrador')  }}>
+                            <Text style={styles.botaoVoltarTexto}>voltar</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -242,12 +245,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 
-    link: {
-        color: '#1D1D1D',
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
         marginTop: 20,
-        textAlign: 'center',
-        textDecorationLine: "underline",
-        textDecorationStyle: "solid",
-        textDecorationColor: "#000"
-    }
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
 });

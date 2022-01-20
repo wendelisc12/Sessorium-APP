@@ -17,11 +17,7 @@ export default function Boletim() {
 
     return (
         <View style={{ flex: 1 }}>
-            <Appbar.Header style={{backgroundColor: 'green'}}>
-                
-                <Appbar.Content title="Sessorium"/>
-                
-            </Appbar.Header>
+            
             <ScrollView>
                 
 

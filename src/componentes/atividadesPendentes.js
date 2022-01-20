@@ -6,7 +6,7 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const AtividadesPendentes = () => (
     
-    <View style={{marginBottom: 25, marginTop: 20}}>
+    <View style={{marginBottom: 25, marginTop: 20, marginHorizontal: 10}}>
         <Card>
             <Card.Content>
                 <Title>Atividades pendentes</Title>

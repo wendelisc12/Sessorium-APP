@@ -4,7 +4,7 @@ import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const Turmas = () => (
-  <Card>
+  <Card style={{marginVertical: 20,  marginHorizontal: 10}}>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
       <Title>Matéria: </Title>
