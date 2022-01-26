@@ -15,6 +15,7 @@ export default function Forum() {
 
 
     return (
+<<<<<<< HEAD:src/pages-aluno/forum.js
         <View style={{ flex: 1 }} >
             <View style={styles.logoContainer}>
                 <Image
@@ -25,6 +26,12 @@ export default function Forum() {
             <ScrollView style={styles.principalContainer}>
                 <Text>forum</Text>
 
+=======
+        <View style={{ flex: 1 }}>
+            
+            <ScrollView>
+                
+>>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334:src/pages-aluno/chat.js
 
             </ScrollView>
 

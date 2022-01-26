@@ -15,6 +15,7 @@ export default function Perfil() {
 
 
     return (
+<<<<<<< HEAD:src/pages-aluno/atividade.js
         <View style={{ flex: 1 }} >
             <View style={styles.logoContainer}>
                 <Text>Sessorium</Text>
@@ -22,6 +23,12 @@ export default function Perfil() {
             <ScrollView style={styles.principalContainer}>
                 <Text>perfil</Text>
 
+=======
+        <View style={{ flex: 1 }}>
+            
+            <ScrollView>
+                
+>>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334:src/pages-aluno/perfil.js
 
             </ScrollView>
 

@@ -18,6 +18,7 @@ const Stack = createNativeStackNavigator();
 export default function Boletim() {
     return (
         <View style={{ flex: 1 }}>
+<<<<<<< HEAD
             <View style={styles.logoContainer}>
                 <Image
                     style={{ width: 160, height: 40, marginHorizontal: 'auto'}}
@@ -50,6 +51,12 @@ export default function Boletim() {
                         
                     </View>
                 </View>
+=======
+            
+            <ScrollView>
+                
+
+>>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
             </ScrollView>
         </View>
     );
