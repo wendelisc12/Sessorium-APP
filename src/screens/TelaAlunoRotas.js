@@ -16,17 +16,10 @@ export default function TelaAlunoRotas(){
     return(
         <Tab.Navigator screenOptions={({ route }) => ({
            
-<<<<<<< HEAD
-            tabBarActiveTintColor: '#32E535',
-            tabBarInactiveTintColor: '#9E9E9E',
-
-            tabBarStyle:{paddingBottom: 5, paddingTop: 10, backgroundColor: '#EDEDED', borderTopColor: '#ccc', borderTopWidth: 2}
-=======
             tabBarActiveTintColor: 'white',
             tabBarInactiveTintColor: 'rgb(216, 216, 216)',
 
             tabBarStyle:{paddingBottom: 5, paddingTop: 5, backgroundColor: '#32E535'}
->>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
           })}>
 
             <Tab.Screen 

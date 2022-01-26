@@ -45,15 +45,15 @@ export default function login({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image
-                    style={{width:160, height: 40, marginLeft: 20}}
-                    source={require('../images/logo.png')}
-                />
-
+            <Image
+                        style={{width:160, height: 40, marginLeft: 20}}
+                        source={require('../images/logo.png')}
+                    />
+            
             </View>
 
             <View style={styles.formContainer}>
-
+            <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você estálogando como aluno</Text>
                 <View>
                     <Text style={styles.label}>Login:</Text>
                     <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default"  onChange={login => setLogin(login)} />
@@ -87,24 +87,25 @@ const styles = StyleSheet.create({
         backgroundColor: "#EFEFEF",
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor: 'rgb(50, 229, 53);'
     },
 
     logoContainer: {
         top: 0,
-        height: '40%',
+        height: '30%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        
     },
 
     logo: {
-        backgroundColor: 'red',
         width: 105,
     },
 
     formContainer: {
         width: '100%',
-        height: '60%',
+        height: '70%',
         bottom: 0,
         backgroundColor: '#fff',
         borderTopLeftRadius: 30,

@@ -18,45 +18,10 @@ const Stack = createNativeStackNavigator();
 export default function Boletim() {
     return (
         <View style={{ flex: 1 }}>
-<<<<<<< HEAD
-            <View style={styles.logoContainer}>
-                <Image
-                    style={{ width: 160, height: 40, marginHorizontal: 'auto'}}
-                    source={require("../images/logo.png")}
-                />
-            </View>
-            <ScrollView style={styles.principalContainer}>
-                <Text style={{margin: 15, fontSize: 23, fontWeight: '600'}}>Notas:</Text>
-
-                <View style={styles.notaMateriaContainer}>
-                    <View style={{padding: 10, backgroundColor: '#FF4848', borderTopLeftRadius: 5, borderTopRightRadius: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                        <Text style={{fontSize: 25, fontWeight: '600', color: '#fff'}}>História</Text>
-                        <Image
-                            style={{width: 30, height: 30,}}
-                            source={require('../images/icon-seta-baixo.svg')}
-                        />
-                    </View>
-
-                    <View style={styles.notas}>
-                        <View style={{ borderBottomColor: '#cccc', borderBottomWidth: 1, }}>
-                            <View style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                                <Text style={styles.unidade}>Unidade</Text>
-                                <Text style={styles.nota}>Nota</Text>
-                            </View>
-                            <View style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                                <Text style={styles.unidade}>1</Text>
-                                <Text style={styles.nota}>10.0</Text>
-                            </View>
-                        </View>
-                        
-                    </View>
-                </View>
-=======
             
             <ScrollView>
                 
 
->>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
             </ScrollView>
         </View>
     );

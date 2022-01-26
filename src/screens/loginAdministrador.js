@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
-
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -48,12 +46,9 @@ export default function loginAdministrador({navigation}) {
 
             <View style={styles.formContainer}>
                 <View style={styles.logoContainer}>
-                    <Text>Sessorium</Text>
                     <Image
-                        style={styles.imagemPerfil}
-                        source={{
-                            require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                        }}
+                        style={{width:160, height: 40, marginLeft: 20}}
+                        source={require('../images/logo.png')}
                     />
 
                 </View>

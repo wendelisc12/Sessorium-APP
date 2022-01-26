@@ -17,11 +17,8 @@ import telaAluno from './src/pages-aluno/telaAluno';
 import TelaAlunoRotas from './src/screens/TelaAlunoRotas';
 import administradorRotas from './src/screens/administradorRotas'
 import AlunoDetalhes from './src/page-administrador/alunoDetalhes';
-<<<<<<< HEAD
-import TelaMateria from './src/pages-aluno/TelaMateria'
-=======
 import loginSeletivo from './src/screens/loginSeletivo';
->>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
+import telaProfessor from './src/pages-professor/telaProfessor';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,11 +26,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-<<<<<<< HEAD
        <Stack.Navigator initialRouteName="telaAluno" >
-=======
-       <Stack.Navigator initialRouteName="loginSeletivo" >
->>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -45,11 +38,8 @@ export default function App() {
         <Stack.Screen name="telaAlunoRotas" component={TelaAlunoRotas} options={{headerShown: false}} />
         <Stack.Screen name="administradorRotas" component={administradorRotas} options={{headerShown: false}} />
         <Stack.Screen name="alunoDetalhes" component={AlunoDetalhes} options={{headerShown: false}} />
-<<<<<<< HEAD
-        <Stack.Screen name="TelaMateria" component={TelaMateria} options={{headerShown: false}} />
-=======
         <Stack.Screen name="loginSeletivo" component={loginSeletivo} options={{headerShown: false}} />
->>>>>>> bde6f10dc2799ed455566b630393ef8912ee9334
+        <Stack.Screen name="telaProfessor" component={telaProfessor} options={{headerShown: false}} />
 
         
 
