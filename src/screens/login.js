@@ -46,10 +46,8 @@ export default function login({navigation}) {
         <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <Image
-                    style={styles.imagemPerfil}
-                    source={{
-                        require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                    }}
+                    style={{width:160, height: 40, marginLeft: 20}}
+                    source={require('../images/logo.png')}
                 />
 
             </View>

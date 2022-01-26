@@ -17,7 +17,7 @@ export default function Professores({navigation}) {
             <Text style={styles.titulo}>Sessorium</Text>
 
             <View style={styles.turmasContainer}>
-              <Text style={{fontSize: 20, fontWeight: 700}}>Professores:</Text>
+              <Text style={{fontSize: 20, fontWeight: '700'}}>Professores:</Text>
               <View style={{marginTop: 10}}>
                 <Text>A-Z</Text>
                 <View style={{backgroundColor: '#Cecece', height: 1, marginTop: 10}}></View>

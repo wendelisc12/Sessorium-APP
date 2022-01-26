@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
-import AtividadesPendentes from '../componentes/atividadesPendentes';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Appbar } from 'react-native-paper';
@@ -12,18 +11,20 @@ import { Appbar } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 
-export default function Calendario() {
+export default function Atividades() {
 
 
     return (
-        <View style={{ flex: 1 }}>
-            <Appbar.Header style={{backgroundColor: 'green'}}>
-                
-                <Appbar.Content title="Sessorium"/>
-                
-            </Appbar.Header>
-            <ScrollView>
-                
+        <View style={{ flex: 1 }} >
+            <View style={styles.logoContainer}>
+                <Image
+                    style={{ width: 160, height: 40, marginHorizontal: 'auto'}}
+                    source={require("../images/logo.png")}
+                />
+            </View>
+            <ScrollView style={styles.principalContainer}>
+                <Text>atividade</Text>
+
 
             </ScrollView>
 
@@ -43,24 +44,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         display: 'flex',
-
     },
 
-
-
-    turmasContainer: {
+    principalContainer: {
         backgroundColor: 'white',
         width: '100%',
         bottom: 3,
-        margin: 10,
-        padding: 20,
+        padding: 10,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
     },
 
-    titulo: {
-        fontSize: 30,
-        position: 'sticky',
+    logoContainer: {
+        height: 100,
+        width: '100%',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center'
     },
 
 

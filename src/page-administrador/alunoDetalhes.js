@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     infoInput: {
         fontSize: 18,
         marginBottom: 10,
-        fontWeight: 500
+        fontWeight: '500'
     },
 
     label: {

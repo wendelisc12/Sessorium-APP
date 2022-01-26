@@ -1,80 +1,101 @@
-import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
-import AtividadesPendentes from '../componentes/atividadesPendentes';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Appbar } from 'react-native-paper';
-
-
-
-
+import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import {
+    StyleSheet,
+    View,
+    Text,
+    TextInput,
+    Image,
+    TouchableOpacity,
+    ScrollView,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
 export default function Boletim() {
-
-
     return (
         <View style={{ flex: 1 }}>
-            <Appbar.Header style={{backgroundColor: 'green'}}>
-                
-                <Appbar.Content title="Sessorium"/>
-                
-            </Appbar.Header>
-            <ScrollView>
-                
+            <View style={styles.logoContainer}>
+                <Image
+                    style={{ width: 160, height: 40, marginHorizontal: 'auto'}}
+                    source={require("../images/logo.png")}
+                />
+            </View>
+            <ScrollView style={styles.principalContainer}>
+                <Text style={{margin: 15, fontSize: 23, fontWeight: '600'}}>Notas:</Text>
 
+                <View style={styles.notaMateriaContainer}>
+                    <View style={{padding: 10, backgroundColor: '#FF4848', borderTopLeftRadius: 5, borderTopRightRadius: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <Text style={{fontSize: 25, fontWeight: '600', color: '#fff'}}>História</Text>
+                        <Image
+                            style={{width: 30, height: 30,}}
+                            source={require('../images/icon-seta-baixo.svg')}
+                        />
+                    </View>
+
+                    <View style={styles.notas}>
+                        <View style={{ borderBottomColor: '#cccc', borderBottomWidth: 1, }}>
+                            <View style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                                <Text style={styles.unidade}>Unidade</Text>
+                                <Text style={styles.nota}>Nota</Text>
+                            </View>
+                            <View style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                                <Text style={styles.unidade}>1</Text>
+                                <Text style={styles.nota}>10.0</Text>
+                            </View>
+                        </View>
+                        
+                    </View>
+                </View>
             </ScrollView>
-
         </View>
-
-
-
-
-
-
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#EFEFEF",
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        display: 'flex',
-
+        alignItems: "center",
+        justifyContent: "space-between",
+        display: "flex",
     },
 
-
-
-    turmasContainer: {
-        backgroundColor: 'white',
-        width: '100%',
+    principalContainer: {
+        backgroundColor: "white",
+        width: "100%",
         bottom: 3,
-        margin: 10,
-        padding: 20,
+        padding: 10,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
     },
 
-    titulo: {
-        fontSize: 30,
-        position: 'sticky',
+    logoContainer: {
+        height: 100,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        justifyContent: 'center',
     },
 
-
-
-    label: {
-        marginTop: 10,
-        marginBottom: 5
+    notaMateriaContainer:{
+        borderRadius: 5,
     },
 
+    unidade:{
+        width:80,
+        borderWidth: 1,
+        borderColor: '#d4d4d4',
+        fontWeight:"600", display: 'flex', justifyContent: 'center', alignItems:"center",
+    },
 
-    botaoEntrarTexto: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 18,
+    nota:{
+        padding: 10, flex: 1, textAlign: 'center',  fontWeight:"600",
+        borderWidth: 1,
+        borderColor: '#d4d4d4',
     },
 
 });

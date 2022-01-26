@@ -10,12 +10,11 @@ import loginAdministrador from './src/screens/loginAdministrador';
 import registrarEscola from './src/screens/registrarEscola';
 import cadastrarCoordenador from './src/page-administrador/cadastrarCoordenador';
 import cadastrarProfessor from './src/page-administrador/cadastrarProfessor';
-import Turmas from './src/componentes/turmas';
 import telaAluno from './src/pages-aluno/telaAluno';
-import AtividadesPendentes from './src/componentes/atividadesPendentes';
 import TelaAlunoRotas from './src/screens/TelaAlunoRotas';
 import administradorRotas from './src/screens/administradorRotas'
 import AlunoDetalhes from './src/page-administrador/alunoDetalhes';
+import TelaMateria from './src/pages-aluno/TelaMateria'
 
 
 const Stack = createNativeStackNavigator();
@@ -23,18 +22,17 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="telaAlunoRotas" >
+       <Stack.Navigator initialRouteName="telaAluno" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="registrarEscola" component={registrarEscola} options={{headerShown: false}} />
         <Stack.Screen name="cadastrarCoordenador" component={cadastrarCoordenador} options={{headerShown: false}} />
         <Stack.Screen name="cadastrarProfessor" component={cadastrarProfessor} options={{headerShown: false}} />
-        <Stack.Screen name="turmas" component={Turmas} options={{headerShown: false}} />
         <Stack.Screen name="telaAluno" component={telaAluno} options={{headerShown: false}} />
-        <Stack.Screen name="atividadesPendentes" component={AtividadesPendentes} options={{headerShown: false}} />
         <Stack.Screen name="telaAlunoRotas" component={TelaAlunoRotas} options={{headerShown: false}} />
         <Stack.Screen name="administradorRotas" component={administradorRotas} options={{headerShown: false}} />
         <Stack.Screen name="alunoDetalhes" component={AlunoDetalhes} options={{headerShown: false}} />
+        <Stack.Screen name="TelaMateria" component={TelaMateria} options={{headerShown: false}} />
 
         
 
