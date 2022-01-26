@@ -53,7 +53,7 @@ export default function login({navigation}) {
             </View>
 
             <View style={styles.formContainer}>
-            <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você estálogando como aluno</Text>
+            <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você está logando como aluno</Text>
                 <View>
                     <Text style={styles.label}>Login:</Text>
                     <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default"  onChange={login => setLogin(login)} />

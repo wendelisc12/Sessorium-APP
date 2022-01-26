@@ -59,12 +59,10 @@ export default function registrarescola() {
 
             <View style={styles.formContainer}>
                 <View style={styles.logoContainer}>
-                    <Text>Sessorium</Text>
-                    <Image
-                        style={styles.imagemPerfil}
-                        source={{
-                            require: ('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                        }}
+                    
+                <Image
+                        style={{width:160, height: 40, marginLeft: 20}}
+                        source={require('../images/logo.png')}
                     />
 
                 </View>
@@ -113,6 +111,9 @@ export default function registrarescola() {
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => { loginFirebase }}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginAdministrador')  }}>
+                            <Text style={styles.botaoVoltarTexto}>voltar</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -201,6 +202,25 @@ const styles = StyleSheet.create({
 
     botaoEntrarTexto: {
         color: 'white',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
+        marginTop: 20,
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
         fontWeight: 'bold',
         fontSize: 18,
     },

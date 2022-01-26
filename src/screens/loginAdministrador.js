@@ -52,6 +52,7 @@ export default function loginAdministrador({navigation}) {
                     />
 
                 </View>
+                <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você está logando como ADM</Text>
                 <View>
                     <Text style={styles.label}>CNPJ:</Text>
                     <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" onChange={cnpj => setCnpj(cnpj)} />

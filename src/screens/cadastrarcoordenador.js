@@ -66,12 +66,10 @@ export default function cadastrarCoordenador({navigation}) {
 
             <View style={styles.formContainer}>
                 <View style={styles.logoContainer}>
-                    <Text>Sessorium</Text>
+                    
                     <Image
-                        style={styles.imagemPerfil}
-                        source={{
-                            require:('https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg'),
-                        }}
+                        style={{width:160, height: 40, marginLeft: 20}}
+                        source={require('../images/logo.png')}
                     />
 
                 </View>
@@ -84,7 +82,6 @@ export default function cadastrarCoordenador({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default"  onChange={email => setEmail(email)} />
 
                     <Text style={styles.label}>CPF: </Text>
-
                     <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChange={cpf => setCpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
@@ -93,7 +90,6 @@ export default function cadastrarCoordenador({navigation}) {
                     <Text style={styles.label}>Telefone: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChange={telefone => setTelefone(telefone)} />
 
-                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default"  onChange={cpf => setcpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" onChange={data_nascimento => setdata_nascimento(data_nascimento)} />
