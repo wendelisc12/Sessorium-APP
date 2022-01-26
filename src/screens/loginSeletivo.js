@@ -15,7 +15,11 @@ export default function loginSeletivo({navigation}) {
         <View style={{ flex: 1 }} >
             <Appbar.Header style={{ backgroundColor: '#32E535' }}>
 
-                <Appbar.Content title="Sessorium" style={styles.titulo} />
+            <Image
+                        style={{width:160, height: 40, marginLeft: 20, padding: 0
+                        }}
+                        source={require('../images/logo.png')}
+                    />
 
             </Appbar.Header>
 
