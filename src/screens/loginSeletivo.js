@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Appbar } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
@@ -12,98 +12,42 @@ export default function loginSeletivo({navigation}) {
 
 
     return (
-        <View style={{ flex: 1 }} >
-            <Appbar.Header style={{ backgroundColor: '#32E535' }}>
+        <View style={{height: '100%', display: 'flex', justifyContent: 'space-between'}} >
 
-            <Image
-                        style={{width:160, height: 40, marginLeft: 20, padding: 0
-                        }}
-                        source={require('../images/logo.png')}
-                    />
-
-            </Appbar.Header>
-
-            <View style={styles.containerPergunta} >
-                <Text style={styles.pergunta}>Quem é você?</Text>
+            <View style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1}}>
+                <Image
+                    style={{ width: 160, height: 40, marginVertical: 20,
+                    display: 'flex',
+                    alignItems: 'center' }}
+                    source={require('../images/logo.png')}
+                />
             </View>
 
-            <ScrollView>
-                <View style={styles.containerQuadrado}>
-                    <TouchableOpacity style={styles.quadrado} onPress={() => { navigation.navigate('login') } }>
-                    
-                        <View style={styles.conteudo}>
-
-                            <View style={styles.containerIcon}>
-                                <Icon name='user-o' size={30} color='rgb(36, 36, 36)'/>
-                            </View>
-
-                            <View style={styles.containerPessoa}>
-                                <Text  style={styles.pessoa}> Estudante </Text>
-                            </View>
-                            
-                        </View>
-                       
-
-                   
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={styles.quadrado} onPress={() => { navigation.navigate('loginProfessor') } }>
-                    
-                        <View style={styles.conteudo}>
-
-                            <View style={styles.containerIcon}>
-                                <Icon name='user-o' size={30} color='rgb(36, 36, 36)'/>
-                            </View>
-
-                            <View style={styles.containerPessoa}>
-                                <Text  style={styles.pessoa}> Professor </Text>
-                            </View>
-                            
-                        </View>
-                       
-
-                   
-                    </TouchableOpacity>
-                    
-
-                    <TouchableOpacity style={styles.quadrado} onPress={() => { navigation.navigate('loginPais') } }>
-                    
-                        <View style={styles.conteudo}>
-
-                            <View style={styles.containerIcon}>
-                                <Icon name='user-o' size={30} color='rgb(36, 36, 36)'/>
-                            </View>
-
-                            <View style={styles.containerPessoa}>
-                                <Text  style={styles.pessoa}> Pais </Text>
-                            </View>
-                            
-                        </View>
-                  
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.quadrado} onPress={() => { navigation.navigate('loginAdministrador') } }>
-                    
-                        <View style={styles.conteudo}>
-
-                            <View style={styles.containerIcon}>
-                                <Icon name='user-o' size={30} color='rgb(36, 36, 36)'/>
-                            </View>
-
-                            <View style={styles.containerPessoa}>
-                                <Text  style={styles.pessoa}>administrador</Text>
-                            </View>
-                            
-                        </View>
-                  
-                    </TouchableOpacity>
-                    
-
-
+            <View style={styles.principal} >
+                <View style={{paddingTop: 20}}>
+                    <Text style={styles.pergunta}>Fazer login como:</Text>
                 </View>
 
+                <View style={{width: '100%', display: 'flex', alignItems: 'center'}}>
+                    <Button icon="account" mode="contained" onPress={() => { navigation.navigate('login') } } style={styles.botaoLogin}>
+                        Aluno
+                    </Button>
 
-            </ScrollView>
+                    <Button icon="account" mode="contained" onPress={() => { navigation.navigate('loginProfessor') } } style={styles.botaoLogin}>
+                        Professor
+                    </Button>
+
+                    <Button icon="account" mode="contained" onPress={() => { navigation.navigate('loginPais') } } style={styles.botaoLogin}>
+                        Pai
+                    </Button>
+                </View>
+
+                <View style={{paddingBottom: 20}}>
+                    <TouchableOpacity  onPress={() => { navigation.navigate('loginAdministrador') } }>
+                        <Text style={{fontSize: 16, fontWeight: 600}}>Entrar como administrador</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
 
         </View>
 
@@ -124,53 +68,32 @@ const styles = StyleSheet.create({
 
     },
 
-    containerPergunta: {
+    principal: {
         width: '100%',
         height: 50,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 2,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
     },
 
     pergunta: {
-        color: 'black',
-        fontSize: 20
+        color: '#1d1d1d',
+        fontSize: 20,
+        fontWeight: 600
     },
 
-    containerQuadrado: {
-       width: '100%',
-       display: 'flex',
-       alignItems: 'center'
-
-
-    },
-    quadrado: {
-        width: '60%',
-        height: 150,
-        alignItems: 'center',
-        borderRadius: 10,
+    botaoLogin:{
+        width: '90%',
+        height: 50,
         marginVertical: 10,
-        border: '1px solid rgba(3, 3, 3, 0.171)',
-        boxShadow: '2px 2px 5px gray'
-    },
-
-    conteudo:{
-        padding: 20,
-       
-    },
-
-    containerIcon:{
-        textAlign: 'center'
-    },
-
-    containerPessoa:{
-        textAlign: 'center',
-        marginTop: 10
-    },
-
-    pessoa:{
-        fontSize: 25,
-        fontWeight: '300'
-    },
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#32E535'
+    }
 
 });

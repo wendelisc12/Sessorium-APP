@@ -48,43 +48,6 @@ export default function telaProfessor() {
             </LinearGradient>
 
             <ScrollView style={styles.main}>
-                <View style={styles.atividadesPendentesContainer}>
-                    <Text style={{ fontSize: 20, fontWeight: 600 }}>Atividades:</Text>
-                    <TouchableOpacity style={styles.atividadesPendentes}>
-                        <View
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                flexDirection: "row",
-                                height: "100%",
-                            }}
-                        >
-                            <View
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    paddingLeft: 5,
-                                    alignItems: "center",
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Text style={{ marginRight: 5, fontSize: 18, fontWeight: 600 }}>0</Text>{" "}
-                                <Text style={{ fontSize: 18, fontWeight: 600 }}>Atividades Pendentes</Text>
-                            </View>
-
-                            <View
-                                style={{ width: 30, height: 30}}
-                            >
-                                <Image
-                                    style={{width: 30, height: 30}}
-                                    source={require('../images/icon-seta.svg')}
-                                />
-
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                </View>
 
                 <View style={styles.materias}>
                     <TouchableOpacity style={styles.materiaContainer}>

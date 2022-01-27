@@ -53,7 +53,7 @@ export default function loginProfessor({navigation}) {
 
                 </View>
                 <View>
-                <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você estálogando como Professor</Text>
+                <Text style={{ fontSize: 20, textAlign:'center' }}>Professor</Text>
                     <Text style={styles.label}>CNPJ:</Text>
                     <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" onChange={cnpj => setCnpj(cnpj)} />
 
