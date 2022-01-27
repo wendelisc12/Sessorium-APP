@@ -11,7 +11,6 @@ import loginProfessor from './src/screens/loginProfessor';
 import loginPais from './src/screens/loginPais';
 
 import registrarEscola from './src/screens/registrarEscola';
-import cadastrarCoordenador from './src/screens/cadastrarcoordenador';
 import cadastrarProfessor from './src/page-administrador/cadastrarProfessor';
 import telaAluno from './src/pages-aluno/telaAluno';
 import TelaAlunoRotas from './src/screens/TelaAlunoRotas';
@@ -22,6 +21,11 @@ import telaProfessor from './src/pages-professor/telaProfessor';
 import professores from './src/page-administrador/professores';
 import alunos from './src/page-administrador/alunos';
 import adicionarAluno from './src/page-administrador/adicionarAluno'
+import atividades from './src/pages-aluno/atividades';
+import atividade from './src/pages-aluno/atividade';
+import boletim from './src/pages-aluno/boletim';
+import turmas from './src/page-administrador/turmas';
+import professorDetalhes from './src/page-administrador/professorDetalhes';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,7 +33,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="loginSeletivo" >
+       <Stack.Navigator initialRouteName="telaAlunoRotas" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -45,8 +49,11 @@ export default function App() {
         <Stack.Screen name="professores" component={professores} options={{headerShown: false}} />
         <Stack.Screen name="alunos" component={alunos} options={{headerShown: false}} />
         <Stack.Screen name="adicionarAluno" component={adicionarAluno} options={{headerShown: false}} />
-
-        
+        <Stack.Screen name="atividades" component={atividades} options={{headerShown: false}} />
+        <Stack.Screen name="atividade" component={atividade} options={{title: ""}} />
+        <Stack.Screen name="boletim" component={boletim} options={{headerShown: false}} />
+        <Stack.Screen name="turmas" component={turmas} options={{headerShown: false}} />
+        <Stack.Screen name="professorDetalhes" component={professorDetalhes} options={{title: ""}} />
 
       </Stack.Navigator> 
       

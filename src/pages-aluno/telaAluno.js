@@ -18,7 +18,7 @@ import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
-export default function telaAluno() {
+export default function telaAluno({navigation}) {
     return (
         <View style={{ height: "100%" }}>
             <LinearGradient style={styles.header}  colors={['#3ef741','#36f339']}>
@@ -52,7 +52,7 @@ export default function telaAluno() {
             <ScrollView style={styles.main}>
                 <View style={styles.atividadesPendentesContainer}>
                     <Text style={{ fontSize: 20, fontWeight: 600 }}>Atividades:</Text>
-                    <TouchableOpacity style={styles.atividadesPendentes}>
+                    <TouchableOpacity style={styles.atividadesPendentes} onPress={() => { navigation.navigate('atividades')  }}>
                         <View
                             style={{
                                 display: "flex",

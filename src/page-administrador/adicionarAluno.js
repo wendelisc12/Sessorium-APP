@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
 
@@ -23,6 +23,23 @@ export default function adicionarAluno({ navigation }) {
         appId: "1:531906212353:web:583f425cfbad2cd74cc600",
         measurementId: "G-0VGDK739RL"
     };
+
+    const [getDados, setDados] = useState([])
+
+    useEffect(() => {
+        function consultarDados() {
+            axios.get('https://viacep.com.br/ws/54090470/json/')
+                .then(function (response) {
+                    setDados(response.data)
+                    console.log(response)
+                }).catch(function (error) {
+                    console.log('erro')
+                })
+        }
+
+        consultarDados()
+
+    }, [])
 
 
     return (

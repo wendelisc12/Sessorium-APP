@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const Stack = createNativeStackNavigator();
 
-export default function Alunos({ navigation }) {
+export default function Turmas({ navigation }) {
 
     const [getDados, setDados] = useState([])
 
@@ -44,7 +44,7 @@ export default function Alunos({ navigation }) {
 
             <View style={styles.turmasContainer}>
             <Text style={{ fontSize: 20, fontWeight: "700", marginBottom: 15 }}>
-                    Adicione um aluno
+                    Adicione uma nova turma
                 </Text>
                 <TouchableOpacity
                 style={{
@@ -59,10 +59,10 @@ export default function Alunos({ navigation }) {
                     padding: 10,
                 }}
                 onPress={() => { navigation.navigate('adicionarAluno') }}>
-                    <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', fontWeight: '600' }}>Adicionar aluno</Text>
+                    <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', fontWeight: '600' }}>Adicionar turma</Text>
                 </TouchableOpacity>
                 <Text style={{ fontSize: 20, fontWeight: "700", borderTopColor: '#ccc', borderTopWidth: 1, paddingTop: 15 }}>
-                    Lista de alunos:
+                    Lista de turmas:
                 </Text>
                 <View style={{ marginTop: 10 }}>
                     <Text>A-Z</Text>
@@ -85,7 +85,6 @@ export default function Alunos({ navigation }) {
 
                         ))
                     }
-                    
 
 
 

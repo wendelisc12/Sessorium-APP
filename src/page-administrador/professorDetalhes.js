@@ -8,7 +8,7 @@ import { Button } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 
-export default function AlunoDetalhe({ navigation }) {
+export default function ProfessorDetalhes({ navigation }) {
 
 
     return (
@@ -16,7 +16,7 @@ export default function AlunoDetalhe({ navigation }) {
         <View style={styles.container}>
             <View style={styles.formContainer}>
                 <ScrollView>
-                    <Text style={styles.titulos}>Informações do Aluno</Text>
+                    <Text style={styles.titulos}>Informações do professor</Text>
                     <Text style={styles.label}>Nome: </Text>
                     <Text style={styles.infoInput}>nome</Text>
 
@@ -33,30 +33,24 @@ export default function AlunoDetalhe({ navigation }) {
                     <Text style={styles.infoInput}>nome</Text>
 
                     <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
-                    <Text style={styles.titulos}>Informações importantes </Text>
+                    <Text style={styles.titulos}>Informações acadêmicas </Text>
 
-                    <Text style={styles.label}>Matrícula: </Text>
+                    <Text style={styles.label}>Instituição: </Text>
                     <Text style={styles.infoInput}>nome</Text>
 
-                    <Text style={styles.label}>Possui alguma deficiência? </Text>
+                    <Text style={styles.label}>Curso:</Text>
                     <Text style={styles.infoInput}>nome</Text>
 
-                    <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
-                    <Text style={styles.titulos}>Informações do responsável</Text>
-
-                    <Text style={styles.label}>Nome do responsável: </Text>
+                    <Text style={styles.label}>Curso:</Text>
                     <Text style={styles.infoInput}>nome</Text>
 
-                    <Text style={styles.label}>Email do responsável: </Text>
+                    <Text style={styles.label}>Data de inicio:</Text>
                     <Text style={styles.infoInput}>nome</Text>
 
-                    <Text style={styles.label}>CPF do responsável: </Text>
+                    <Text style={styles.label}>Data de conclusão:</Text>
                     <Text style={styles.infoInput}>nome</Text>
 
-                    <Text style={styles.label}>Data de nascimento do responsável: </Text>
-                    <Text style={styles.infoInput}>nome</Text>
-
-                    <Text style={styles.label}>Telefone do responsável: </Text>
+                    <Text style={styles.label}>Siape:</Text>
                     <Text style={styles.infoInput}>nome</Text>
 
                     <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>

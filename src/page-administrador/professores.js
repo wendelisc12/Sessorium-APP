@@ -80,7 +80,7 @@ export default function Professores({ navigation }) {
                 <View>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate("alunoDetalhes");
+                            navigation.navigate("professorDetalhes");
                         }}
                         style={{ borderBottomColor: "#cecece", borderBottomWidth: 1 }}
                     >

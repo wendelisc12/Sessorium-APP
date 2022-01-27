@@ -3,24 +3,35 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Appbar } from 'react-native-paper';
-
-
-
-
+import { Button } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 
-export default function Perfil() {
+export default function atividade({navigation}) {
 
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={styles.container}>
             
-            <ScrollView>
-                
+            <View style={{height: '100%'}}>
+                <View style={styles.atividadeTitulo}>
+                    <Text style={{fontWeight: 600, fontSize: 22}}>Atividade Titulo</Text>
+                </View>
 
-            </ScrollView>
+                <ScrollView style={styles.atividadeDescricao}>
+                    <Text style={{fontSize: 16}}>descricao</Text>
+                </ScrollView>
+
+                <View style={{display: 'flex', alignItems: 'center', marginBottom: 20}}>
+                    <Button icon="upload" mode="contained" onPress={() => { navigation.navigate('login') } } style={{width: 300, height: 60, marginBottom: 10, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        Carregar arquivo
+                    </Button>
+                    <Button icon="file" mode="contained" onPress={() => { navigation.navigate('login') } } style={{width: 300}}>
+                        Enviar atividade
+                    </Button>
+                </View>
+
+            </View>
 
         </View>
 
@@ -34,10 +45,8 @@ export default function Perfil() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#EFEFEF",
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        display: 'flex',
+        backgroundColor: "#fff",
+        height: '100%'
     },
 
     principalContainer: {
@@ -71,5 +80,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+
+    atividadeTitulo:{
+        borderBottomColor: '#ccc',
+        borderBottomWidth: 1,
+        padding: 20,
+    },
+
+    atividadeDescricao:{
+        padding: 20,
+        border: '1px solid #ccc',
+        margin: 10,
+        borderRadius: 20
+        
+    }
 
 });
