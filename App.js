@@ -23,17 +23,34 @@ import alunos from './src/page-administrador/alunos';
 import adicionarAluno from './src/page-administrador/adicionarAluno'
 import atividades from './src/pages-aluno/atividades';
 import atividade from './src/pages-aluno/atividade';
+import { initializeApp } from "firebase/app";
 import boletim from './src/pages-aluno/boletim';
 import turmas from './src/page-administrador/turmas';
 import professorDetalhes from './src/page-administrador/professorDetalhes';
+import cadastrarCoordenador from './src/screens/cadastrarcoordenador'
 
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyAx8IZM_EKoADVng8TExk_Bldx0vL0djyk",
+    authDomain: "fir-d187b.firebaseapp.com",
+    databaseURL: "https://fir-d187b.firebaseio.com",
+    projectId: "fir-d187b",
+    storageBucket: "fir-d187b.appspot.com",
+    messagingSenderId: "41493591821",
+    appId: "1:41493591821:web:3458314ab9849b2129e244"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  // Get a reference to the storage service, which is used to create references in your storage bucket
+
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="telaAlunoRotas" >
+       <Stack.Navigator initialRouteName="loginSeletivo" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -54,6 +71,8 @@ export default function App() {
         <Stack.Screen name="boletim" component={boletim} options={{headerShown: false}} />
         <Stack.Screen name="turmas" component={turmas} options={{headerShown: false}} />
         <Stack.Screen name="professorDetalhes" component={professorDetalhes} options={{title: ""}} />
+        <Stack.Screen name="cadastrarCoordenador" component={cadastrarCoordenador} options={{headerShown: false}} />
+
 
       </Stack.Navigator> 
       

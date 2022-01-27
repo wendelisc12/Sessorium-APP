@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Picker, View, Text, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,34 +13,42 @@ const Stack = createNativeStackNavigator();
 
 export default function adicionarAluno({ navigation }) {
 
+  function cadastroAlunoFirebase() {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, senha)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('usuário cadastrado com sucesso');
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('usuário não cadastrado');
+        console.log(errorMessage);
+        // ..
+      });
+  }
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCvMu2Bhpgs22hLMYyHyd7wiyfnfWaOqhA",
-        authDomain: "sessorium-cede5.firebaseapp.com",
-        projectId: "sessorium-cede5",
-        storageBucket: "sessorium-cede5.appspot.com",
-        messagingSenderId: "531906212353",
-        appId: "1:531906212353:web:583f425cfbad2cd74cc600",
-        measurementId: "G-0VGDK739RL"
-    };
-
-    const [getDados, setDados] = useState([])
-
-    useEffect(() => {
-        function consultarDados() {
-            axios.get('https://viacep.com.br/ws/54090470/json/')
-                .then(function (response) {
-                    setDados(response.data)
-                    console.log(response)
-                }).catch(function (error) {
-                    console.log('erro')
-                })
-        }
-
-        consultarDados()
-
-    }, [])
-
+    const[nome, setNome] = useState("")
+    const[email, setEmail] = useState("")
+    const[cpf, setCpf] = useState("")
+    const[dataNascimento, setDataNascimento] = useState("")
+    const[telefone, setTelefone] = useState("")
+    const[matricula, setMatricula] = useState("")
+    const[nomeResponsavel, setNomeResponsavel] = useState("")
+    const[emailResponsavel, setEmailResponsavel] = useState("")
+    const[cpfResponsavel, setCpfResponsavel] = useState("")
+    const[dataNascimentoResponsavel, setDataNascimentoResponsavel] = useState("")
+    const[telefoneResponsavel, setTelefoneResponsavel] = useState("")
+    const[cep, setCep] = useState("")
+    const[rua, setRua] = useState("")
+    const[cidade, setCidade] = useState("")
+    const[bairro, setBairro] = useState("")
+    const[complemento, setComplemento] = useState("")
+    const[numero, setNumero] = useState("")
+    const[senha, setSenha] = useState("")
 
     return (
         <View style={styles.container}>
@@ -69,7 +77,7 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.titulos}>Informações importantes </Text>
 
                     <Text style={styles.label}>Matrícula: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua matrícula" keyboardType="default" value={instituicao} onChange={instituicao => setInstituicao(instituicao)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua matrícula" keyboardType="default" value={matricula} onChange={matricula => setMatricula(matricula)} />
 
                     <Text style={styles.label}>Possui alguma deficiência? </Text>
                     <TextInput style={styles.input} placeholder="Digite caso tenha" keyboardType="default" value={curso} onChange={curso => setCurso(curso)} />
@@ -78,28 +86,28 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.titulos}>Informações do responsável</Text>
 
                     <Text style={styles.label}>Nome do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nome} onChange={nome => setNome(nome)} />
+                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nomeResponsavel} onChange={nomeResponsavel => setNomeResponsavel(nomeResponsavel)} />
 
                     <Text style={styles.label}>Email do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={email} onChange={email => setEmail(email)} />
+                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={emailResponsavel} onChange={emailResponsavel => setEmailResponsavel(emailResponsavel)} />
 
                     <Text style={styles.label}>CPF do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o CPF" keyboardType="default" value={formacao} onChange={formacao => setFormacao(formacao)} />
+                    <TextInput style={styles.input} placeholder="Digite o CPF" keyboardType="default" value={cpfResponsavel} onChange={cpfResponsavel => setCpfResponsavel(cpfResponsavel)} />
 
                     <Text style={styles.label}>Data de nascimento do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de nascimento" keyboardType="default" value={dataNascimento} onChange={dataNascimento => setDataNascimento(dataNascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite a data de nascimento" keyboardType="default" value={dataNascimentoResponsavel} onChange={dataNascimentoResponsavel => setDataNascimentoResponsavel(dataNascimentoResponsavel)} />
 
                     <Text style={styles.label}>Telefone do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o telefone" keyboardType="default" value={dataConclusao} onChange={dataConclusao => setDataConclusao(dataConclusao)} />
+                    <TextInput style={styles.input} placeholder="Digite o telefone" keyboardType="default" value={telefoneResponsavel} onChange={telefoneResponsavel => setTelefoneResponsavel(telefoneResponsavel)} />
 
                     <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
                     <Text style={styles.titulos}>Endereço</Text>
 
-                    <Text style={styles.label}>Endereço: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={endereco} onChange={endereco => setEndereco(endereco)} />
+                    <Text style={styles.label}>CEP: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChange={cep => setCep(cep)} />
 
-                    <Text style={styles.label}>UF: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={uf} onChange={uf => setUf(uf)} />
+                    <Text style={styles.label}>Rua: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChange={rua => setRua(rua)} />
 
                     <Text style={styles.label}>Cidade: </Text>
                     <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChange={cidade => setCidade(cidade)} />
@@ -119,11 +127,8 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.label}>Senha: </Text>
                     <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
 
-                    <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default" value={confirmarSenha} onChange={confirmarSenha => setConfirmarSenha(confirmarSenha)} />
-
                     <View style={styles.botaoEntrarContainer}>
-                        <TouchableOpacity style={styles.botaoEntrar}>
+                        <TouchableOpacity style={styles.botaoEntrar} onPress={()=> {cadastroAlunoFirebase}}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
                         </TouchableOpacity>
                     </View>

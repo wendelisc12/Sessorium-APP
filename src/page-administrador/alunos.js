@@ -14,17 +14,23 @@ export default function Alunos({ navigation }) {
     const [getDados, setDados] = useState([])
 
     useEffect(() => {
-        function consultarDados() {
-            axios.get('http://localhost:8080/sessorium/alunos')
-                .then(function (response) {
-                    setDados(response.data)
-                    console.log(response)
-                }).catch(function (error) {
-                    console.log('erro')
-                })
+        function consultarAlunos(){
+            fetch('http://localhost:8080/sessorium/alunos')
+            .then(res=> res.json(). then(data =>{
+                console.log(data)
+            }))
         }
+        // function consultarDados() {
+        //     axios.get('http://localhost:8080/sessorium/alunos')
+        //         .then(function (response) {
+        //             setDados(response.data)
+        //             console.log(response)
+        //         }).catch(function (error) {
+        //             console.log('erro')
+        //         })
+        // }
 
-        consultarDados()
+        consultarAlunos()
 
     }, [])
 
