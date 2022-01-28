@@ -23,7 +23,7 @@ const [titulo, setTitulo] = useState("")
 const [descricao, setDescricao] = useState("")
 const [data, setData] = useState("")
 
-    return (
+    return  (
         <View style={styles.container}>
 
 

@@ -18,7 +18,7 @@ import { Appbar } from "react-native-paper";
 const Stack = createNativeStackNavigator();
 
 export default function adicionarAtividade({navigation}) {  
-    return (
+    return  (
         <View style={{ height: "100%" }}>
             <LinearGradient style={styles.header}  colors={['#3ef741','#36f339']}>
                 <View style={styles.headerLogo}>

@@ -12,35 +12,23 @@ const Stack = createNativeStackNavigator();
 
 export default function login({navigation}) {
 
-    const [login, setLogin] = useState("")
+    const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyCvMu2Bhpgs22hLMYyHyd7wiyfnfWaOqhA",
-        authDomain: "sessorium-cede5.firebaseapp.com",
-        projectId: "sessorium-cede5",
-        storageBucket: "sessorium-cede5.appspot.com",
-        messagingSenderId: "531906212353",
-        appId: "1:531906212353:web:583f425cfbad2cd74cc600",
-        measurementId: "G-0VGDK739RL"
-    };
-
-    function loginFirebase() {
+    
+      function loginFirebase() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, login, senha)
-            .then((userCredential) => {
-                console.log('conectado')
-                const user = userCredential.user;
-            })
-            .catch((error) => {
-                console.log("não conectado")
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
-    }
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+        signInWithEmailAndPassword(auth, email, senha)
+          .then((userCredential) => {
+            console.log('conectado');
+            const user = userCredential.user;
+            // ...
+          })
+          .catch((error) => {
+            console.log('não conectado');
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      }
 
     return (
         <View style={styles.container}>
@@ -57,10 +45,10 @@ export default function login({navigation}) {
                 <View>
                 <Text style={{  fontSize: 20, textAlign:'center' }}>Aluno</Text>
                     <Text style={styles.label}>Login:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu Login" keyboardType="default" onChange={login => setLogin(login)}  />
+                    <TextInput style={styles.input} placeholder="Digite seu Login" keyboardType="default" value={email} onChange={email => setEmail(email)}  />
 
                     <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default"  onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
