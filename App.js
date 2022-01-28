@@ -51,11 +51,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-<<<<<<< HEAD
        <Stack.Navigator initialRouteName="painel" >
-=======
-       <Stack.Navigator initialRouteName="cadastroAtividade" >
->>>>>>> 8703302becbc517284cabdb35e311577c01041ad
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
