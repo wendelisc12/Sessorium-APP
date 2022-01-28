@@ -26,14 +26,15 @@ import atividade from './src/pages-aluno/atividade';
 import boletim from './src/pages-aluno/boletim';
 import turmas from './src/page-administrador/turmas';
 import professorDetalhes from './src/page-administrador/professorDetalhes';
-
+import adicionarAtividade from './src/pages-professor/adicionarAtividade';
+import cadastroAtividade from './src/pages-professor/cadastroAtividade';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="telaAlunoRotas" >
+       <Stack.Navigator initialRouteName="cadastroAtividade">
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -54,7 +55,8 @@ export default function App() {
         <Stack.Screen name="boletim" component={boletim} options={{headerShown: false}} />
         <Stack.Screen name="turmas" component={turmas} options={{headerShown: false}} />
         <Stack.Screen name="professorDetalhes" component={professorDetalhes} options={{title: ""}} />
-
+        <Stack.Screen name="adicionarAtividade" component={adicionarAtividade} options={{headerShown: false}} />
+        <Stack.Screen name="cadastroAtividade" component={cadastroAtividade} options={{headerShown: false}} />
       </Stack.Navigator> 
       
     </NavigationContainer>
