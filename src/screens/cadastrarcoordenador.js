@@ -42,12 +42,22 @@ export default function cadastrarCoordenador({navigation}) {
     const [data_conclusao, setData_conclusao] = useState("")
     const [siape, setSiape] = useState("")
     const [cep, setCep] = useState("")
+    const [rua, setRua] = useState("")
     const [cidade, setCidade] = useState("")
     const [bairro, setBairro] = useState("")
     const [complemento, setComplemento] = useState("")
     const [numero, setNumero] = useState("")
     const [senha, setSenha] = useState("")
     const [confirmarsenha, setConfirmarsenha] = useState("")
+
+    const checkCEP = (e) => {
+        const cep = e.target.value.replace(/\D/g, '')
+        console.log(cep)
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(res => res.json()).then(data => {
+            console.log(data)
+        })
+    }
 
     return (
         <View style={styles.container}>
@@ -65,74 +75,74 @@ export default function cadastrarCoordenador({navigation}) {
                 <View>
                     <Text style={styles.titulos}>Adicione um coordenador</Text>
                     <Text style={styles.label}>Nome: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nome} onChange={nome=> setNome(nome)} />
+                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nome} onChangeText={nome => setNome(nome)} />
 
                     <Text style={styles.label}>Email: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={email} onChange={email => setEmail(email)} />
+                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={email} onChangeText={email => setEmail(email)} />
 
                     <Text style={styles.label}>CPF: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChange={cpf => setCpf(cpf)} />
+                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChangeText={cpf => setCpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={data_nascimento} onChange={data_nascimento => setData_nascimento(data_nascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={data_nascimento} onChangeText={data_nascimento => setData_nascimento(data_nascimento)} />
 
                     <Text style={styles.label}>Telefone: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChange={telefone => setTelefone(telefone)} />
+                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChangeText={telefone => setTelefone(telefone)} />
 
 
                     <Text style={styles.label}>Data de nascimento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={data_nascimento} onChange={data_nascimento => setdata_nascimento(data_nascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={data_nascimento} onChangeText={data_nascimento => setdata_nascimento(data_nascimento)} />
 
                     <Text style={styles.label}>Telefone: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChange={telefone => settelefone(telefone)} />
+                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChangeText={telefone => settelefone(telefone)} />
                     
                     <Text style={styles.titulos}>Informações acadêmicas </Text>
                     
                     <Text style={styles.label}>Instituição: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituicao} onChange={instituicao => setInstituicao(instituicao)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituicao} onChangeText={instituicao => setInstituicao(instituicao)} />
 
                     <Text style={styles.label}>Curso: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChange={curso => setCurso(curso)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChangeText={curso => setCurso(curso)} />
 
                     <Text style={styles.label}>Formação: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChange={formacao => setFormacao(formacao)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChangeText={formacao => setFormacao(formacao)} />
                     
                     <Text style={styles.label}>Data de inicio: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={data_inicio} onChange={data_inicio => setData_inicio(data_inicio)} />
+                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={data_inicio} onChangeText={data_inicio => setData_inicio(data_inicio)} />
 
                     <Text style={styles.label}>Data de conclusão: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={data_conclusao} onChange={data_conclusao => setData_conclusao(data_conclusao)} />
+                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={data_conclusao} onChangeText={data_conclusao => setData_conclusao(data_conclusao)} />
 
                     <Text style={styles.label}>Siape: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape} onChange={siape => setSiape(siape)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape} onChangeText={siape => setSiape(siape)} />
 
                     <Text style={styles.titulos}>Endereço</Text>
 
                     <Text style={styles.label}>CEP: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChange={cep => setCep(cep)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChangeText={cep => setCep(cep)} onBlur={checkCEP}/>
 
                     <Text style={styles.label}>Rua: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChange={rua => setRua(rua)} />
+                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
 
                     <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChange={cidade => setCidade(cidade)} />
+                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChangeText={cidade => setCidade(cidade)} />
 
                     <Text style={styles.label}>Bairro: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChange={bairro => setBairro(bairro)} />
+                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
 
                     <Text style={styles.label}>complemento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChange={complemento => setComplemento(complemento)} />
+                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChangeText={complemento => setComplemento(complemento)} />
 
                     <Text style={styles.label}>Número: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChange={numero => setNumero(numero)} />
+                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChangeText={numero => setNumero(numero)} />
 
                     <Text style={styles.titulos}>Acesso</Text>
 
                     <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default" value={confirmarsenha} onChange={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
+                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default" value={confirmarsenha} onChangeText={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {cadastroAdministradorFirebase}}>
