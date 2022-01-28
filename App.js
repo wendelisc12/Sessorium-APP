@@ -50,7 +50,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="loginSeletivo" >
+       <Stack.Navigator initialRouteName="painel" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -60,7 +60,7 @@ export default function App() {
         <Stack.Screen name="telaAluno" component={telaAluno} options={{headerShown: false}} />
         <Stack.Screen name="telaAlunoRotas" component={TelaAlunoRotas} options={{headerShown: false}} />
         <Stack.Screen name="painel" component={painel} options={{headerShown: false}} />
-        <Stack.Screen name="alunoDetalhes" component={AlunoDetalhes} options={{headerShown: false}} />
+        <Stack.Screen name="alunoDetalhes" component={AlunoDetalhes} options={{title: ""}} />
         <Stack.Screen name="loginSeletivo" component={loginSeletivo} options={{headerShown: false}} />
         <Stack.Screen name="telaProfessor" component={telaProfessor} options={{headerShown: false}} />
         <Stack.Screen name="professores" component={professores} options={{headerShown: false}} />

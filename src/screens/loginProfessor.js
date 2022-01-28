@@ -43,10 +43,10 @@ export default function loginProfessor({navigation}) {
                 <View>
                 <Text style={{ fontSize: 20, textAlign:'center' }}>Professor</Text>
                     <Text style={styles.label}>Email:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" value={email} onChange={email => setEmail(email)} />
+                    <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" value={email} onChangeText={email => setEmail(email)} />
 
                     <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>

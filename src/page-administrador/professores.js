@@ -17,23 +17,22 @@ import axios from "axios";
 const Stack = createNativeStackNavigator();
 
 export default function Professores({ navigation }) {
-    const [getDados, setDados] = useState([]);
+    const [getDados, setDados] = useState([])
 
     useEffect(() => {
-        function consultarDados() {
-            axios
-                .get("http://localhost:8080/sessorium/alunos")
+        function consultarAlunos() {
+            axios.get('http://localhost:8080/sessorium/professores')
                 .then(function (response) {
-                    setDados(response.data);
-                    console.log(response);
+                    setDados(response.data)
+                    console.log(response)
+                }).catch(function (error) {
+                    console.log('erro')
                 })
-                .catch(function (error) {
-                    console.log("erro");
-                });
         }
 
-        consultarDados();
-    }, []);
+        consultarAlunos()
+
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -78,18 +77,29 @@ export default function Professores({ navigation }) {
                 </View>
 
                 <View>
-                    <TouchableOpacity
-                        onPress={() => {
-                            navigation.navigate("professorDetalhes");
-                        }}
-                        style={{ borderBottomColor: "#cecece", borderBottomWidth: 1 }}
-                    >
-                        <List.Item
-                            title="nome"
-                            left={(props) => <List.Icon {...props} icon="account" />}
-                            right={(props) => <List.Icon {...props} icon="pencil" />}
-                        />
-                    </TouchableOpacity>
+                    {
+                        getDados.map((l, i) => (
+
+                            <TouchableOpacity onPress={() => { navigation.navigate('professorDetalhes',
+                            {
+                                nome: l.nome,
+                                email: l.email,
+                                cpf: l.cpf,
+                                DataNascimento: l.dataNascimento,
+                                telefone: l.telefone,
+                                matricula: l.matricula,
+
+                            }) }} key={i} style={{ borderBottomColor: '#cecece', borderBottomWidth: 1 }}>
+                                <List.Item
+                                    title={l.nome}
+                                    left={props => <List.Icon {...props} icon="account" />}
+                                    right={props => <List.Icon {...props} icon="pencil" />}
+                                />
+                            </TouchableOpacity>
+
+
+                        ))
+                    }
                 </View>
             </View>
         </View>

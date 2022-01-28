@@ -19,6 +19,23 @@ import { Appbar } from "react-native-paper";
 const Stack = createNativeStackNavigator();
 
 export default function telaAluno({navigation}) {
+
+    const [getDados, setDados] = useState([])
+
+    useEffect(() => {
+        function consultarAlunos() {
+            axios.get('http://localhost:8080/sessorium/alunos')
+                .then(function (response) {
+                    setDados(response.data)
+                    console.log(response)
+                }).catch(function (error) {
+                    console.log('erro')
+                })
+        }
+
+        consultarAlunos()
+
+    }, [])
     return (
         <View style={{ height: "100%" }}>
             <LinearGradient style={styles.header}  colors={['#3ef741','#36f339']}>

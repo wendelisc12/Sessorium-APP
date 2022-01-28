@@ -9,26 +9,20 @@ import axios from 'axios';
 
 const Stack = createNativeStackNavigator();
 
-export default function Alunos({ navigation }) {
+export default function Alunos({ route,navigation }) {
 
     const [getDados, setDados] = useState([])
 
     useEffect(() => {
-        function consultarAlunos(){
-            fetch('http://localhost:8080/sessorium/alunos')
-            .then(res=> res.json(). then(data =>{
-                console.log(data)
-            }))
+        function consultarAlunos() {
+            axios.get('http://localhost:8080/sessorium/alunos')
+                .then(function (response) {
+                    setDados(response.data)
+                    console.log(response)
+                }).catch(function (error) {
+                    console.log('erro')
+                })
         }
-        // function consultarDados() {
-        //     axios.get('http://localhost:8080/sessorium/alunos')
-        //         .then(function (response) {
-        //             setDados(response.data)
-        //             console.log(response)
-        //         }).catch(function (error) {
-        //             console.log('erro')
-        //         })
-        // }
 
         consultarAlunos()
 
@@ -64,7 +58,7 @@ export default function Alunos({ navigation }) {
                     justifyContent: 'center',
                     padding: 10,
                 }}
-                onPress={() => { navigation.navigate('adicionarAluno') }}>
+                onPress={() => { navigation.navigate('adicionarAluno')}}>
                     <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', fontWeight: '600' }}>Adicionar aluno</Text>
                 </TouchableOpacity>
                 <Text style={{ fontSize: 20, fontWeight: "700", borderTopColor: '#ccc', borderTopWidth: 1, paddingTop: 15 }}>
@@ -80,7 +74,17 @@ export default function Alunos({ navigation }) {
                     {
                         getDados.map((l, i) => (
 
-                            <TouchableOpacity onPress={() => { navigation.navigate('alunoDetalhes') }} style={{ borderBottomColor: '#cecece', borderBottomWidth: 1 }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('alunoDetalhes',
+                            {
+                                codigo: l.codigo,
+                                nome: l.nome,
+                                email: l.email,
+                                cpf: l.cpf,
+                                DataNascimento: l.dataNascimento,
+                                telefone: l.telefone,
+                                matricula: l.matricula,
+
+                            }) }} key={i} style={{ borderBottomColor: '#cecece', borderBottomWidth: 1 }}>
                                 <List.Item
                                     title={l.nome}
                                     left={props => <List.Icon {...props} icon="account" />}
