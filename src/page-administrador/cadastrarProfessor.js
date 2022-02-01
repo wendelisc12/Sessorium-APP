@@ -5,60 +5,84 @@ import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'reac
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import axios from 'axios';
 import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function cadastrarProfessor() {
+export default function cadastrarProfessor({navigation}) {
+
+    function cadastroProfessorFirebase() {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, senha)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log('usuário cadastrado com sucesso');
+            console.log(user);
+            cadastrarDado()
+            navigation.navigator('painel')
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log('usuário não cadastrado');
+            console.log(errorMessage);
+            // ..
+          });
+      }
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [cpf, setCpf] = useState("")
-    const [data_nascimento, setData_nascimento] = useState("")
+    const [dataNascimento, setDataNascimento] = useState("")
     const [telefone, setTelefone] = useState("")
-    const [instituicao, setInstituicao] = useState("")
+    const [instituto, setInstituto] = useState("")
     const [curso, setCurso] = useState("")
     const [formacao, setFormacao] = useState("")
-    const [data_inicio, setData_inicio] = useState("")
-    const [data_conclusao, setData_conclusao] = useState("")
+    const [dataInicio, setDataInicio] = useState("")
+    const [dataConclusao, setDataConclusao] = useState("")
     const [siape, setSiape] = useState("")
-    const [endereco, setEndereco] = useState("")
-    const [uf, setUf] = useState("")
-    const [cidade, setCidade] = useState("")
-    const [bairro, setBairro] = useState("")
-    const [complemento, setComplemento] = useState("")
-    const [numero, setNumero] = useState("")
+    const[cep, setCep] = useState("")
+    const[rua, setRua] = useState("")
+    const[cidade, setCidade] = useState("")
+    const[bairro, setBairro] = useState("")
+    const[complemento, setComplemento] = useState("")
+    const[numero, setNumero] = useState("")
     const [senha, setSenha] = useState("")
     const [confirmarsenha, setConfirmarsenha] = useState("")
 
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyCvMu2Bhpgs22hLMYyHyd7wiyfnfWaOqhA",
-        authDomain: "sessorium-cede5.firebaseapp.com",
-        projectId: "sessorium-cede5",
-        storageBucket: "sessorium-cede5.appspot.com",
-        messagingSenderId: "531906212353",
-        appId: "1:531906212353:web:583f425cfbad2cd74cc600",
-        measurementId: "G-0VGDK739RL"
-    };
-
-    function loginFirebase() {
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, nome, email, telefone,cep, estado, cidade, bairro, numero, cnpj, senha, confirmasenha)
-            .then((userCredential) => {
-                console.log('conectado')
-                const user = userCredential.user;
+    async function cadastrarDado(){
+        axios.post('http://localhost:8080/sessorium/professor', {
+            nome: nome,
+            email: email,
+            cpf: cpf,
+            dataNascimento: dataNascimento,
+            telefone: telefone,
+            instituto: instituto,
+            curso: curso,
+            formacao: formacao,
+            dataInicio: dataInicio,
+            dataConclusao: dataConclusao,
+            siape: siape,
+            cep: cep,
+            rua: rua,
+            cidade: cidade,
+            bairro: bairro,
+            complemento: complemento,
+            numero: numero
+            
+            
+        })
+            .then(function (response) {
+                console.log(response);
+                navigation.navigate('Contatos');
             })
-            .catch((error) => {
-                console.log("não conectado")
-                const errorCode = error.code;
-                const errorMessage = error.message;
+            .catch(function (error) {
+                console.log(error);
             });
-    }
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    }
 
     
 
@@ -78,70 +102,70 @@ export default function cadastrarProfessor() {
                 <View>
                     <Text style={styles.titulos}>Adicione um professor</Text>
                     <Text style={styles.label}>Nome: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" onChange={nome=> setNome(nome)} />
+                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nome} onChangeText={nome=> setNome(nome)} />
 
                     <Text style={styles.label}>Email: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" onChange={email => setEmail(email)} />
+                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={email} onChangeText={email => setEmail(email)} />
 
                     <Text style={styles.label}>CPF: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" onChange={cpf => setCpf(cpf)} />
+                    <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChangeText={cpf => setCpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" onChange={data_nascimento => setData_nascimento(data_nascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
 
                     <Text style={styles.label}>Telefone: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" onChange={telefone => setTelefone(telefone)} />
+                    <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChangeText={telefone => setTelefone(telefone)} />
                     
                     <Text style={styles.titulos}>Informações acadêmicas </Text>
                     
                     <Text style={styles.label}>Instituição: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default"  onChange={instituicao => setInstituicao(instituicao)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituto} onChangeText={instituto => setInstituto(instituto)} />
 
                     <Text style={styles.label}>Curso: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default"  onChange={curso => setCurso(curso)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChangeText={curso => setCurso(curso)} />
 
                     <Text style={styles.label}>Formação: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default"  onChange={formacao => setFormacao(formacao)} />
+                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChangeText={formacao => setFormacao(formacao)} />
                     
                     <Text style={styles.label}>Data de inicio: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default"  onChange={data_inicio => setData_inicio(data_inicio)} />
+                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={dataInicio}  onChangeText={dataInicio => setDataInicio(dataInicio)} />
 
                     <Text style={styles.label}>Data de conclusão: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default"  onChange={data_conclusao => setData_conclusao(data_conclusao)} />
+                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={dataConclusao}  onChangeText={dataConclusao => setDataConclusao(dataConclusao)} />
 
                     <Text style={styles.label}>Siape: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default"  onChange={siape => setSiape(siape)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape}  onChangeText={siape => setSiape(siape)} />
 
                     <Text style={styles.titulos}>Endereço</Text>
 
-                    <Text style={styles.label}>Endereço: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default"  onChange={endereco => setEndereco(endereco)} />
-                    
-                    <Text style={styles.label}>UF: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default"  onChange={uf => setUf(uf)} />
+                    <Text style={styles.label}>CEP: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChangeText={cep => setCep(cep)} />
+
+                    <Text style={styles.label}>Rua: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
 
                     <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default"  onChange={cidade => setCidade(cidade)} />
-                     
+                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChangeText={cidade => setCidade(cidade)} />
+
                     <Text style={styles.label}>Bairro: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default"  onChange={bairro => setBairro(bairro)} />
-                     
+                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
+
                     <Text style={styles.label}>complemento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default"  onChange={complemento => setComplemento(complemento)} />
+                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChangeText={complemento => setComplemento(complemento)} />
 
                     <Text style={styles.label}>Número: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default"  onChange={numero => setNumero(numero)} />
+                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChangeText={numero => setNumero(numero)} />
 
                     <Text style={styles.titulos}>Acesso</Text>
 
                     <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default"  onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha}  onChangeText={senha => setSenha(senha)} />
 
                     <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default"  onChange={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
+                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default"  onChangeText={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
 
                     <View style={styles.botaoEntrarContainer}>
-                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
+                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => cadastrarDado()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
                         </TouchableOpacity>
                     </View>

@@ -12,54 +12,43 @@ const Stack = createNativeStackNavigator();
 
 export default function login({navigation}) {
 
-    const [login, setLogin] = useState("")
+    const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyCvMu2Bhpgs22hLMYyHyd7wiyfnfWaOqhA",
-        authDomain: "sessorium-cede5.firebaseapp.com",
-        projectId: "sessorium-cede5",
-        storageBucket: "sessorium-cede5.appspot.com",
-        messagingSenderId: "531906212353",
-        appId: "1:531906212353:web:583f425cfbad2cd74cc600",
-        measurementId: "G-0VGDK739RL"
-    };
-
-    function loginFirebase() {
+    
+      function loginFirebase() {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, login, senha)
-            .then((userCredential) => {
-                console.log('conectado')
-                const user = userCredential.user;
-            })
-            .catch((error) => {
-                console.log("não conectado")
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
-    }
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+        signInWithEmailAndPassword(auth, email, senha)
+          .then((userCredential) => {
+            console.log('conectado');
+            const user = userCredential.user;
+            // ...
+          })
+          .catch((error) => {
+            console.log('não conectado');
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      }
 
     return (
         <View style={styles.container}>
-            <View style={styles.logoContainer}>
-            <Image
+            
+
+            <View style={styles.formContainer}>
+                <View style={styles.logoContainer}>
+                    <Image
                         style={{width:160, height: 40, marginLeft: 20}}
                         source={require('../images/logo.png')}
                     />
-            
-            </View>
 
-            <View style={styles.formContainer}>
-            <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você está logando como aluno</Text>
+                </View>
                 <View>
+                <Text style={{  fontSize: 20, textAlign:'center' }}>Aluno</Text>
                     <Text style={styles.label}>Login:</Text>
-                    <TextInput style={styles.input} placeholder="Digite seu login" keyboardType="default"  onChange={login => setLogin(login)} />
+                    <TextInput style={styles.input} placeholder="Digite seu Login" keyboardType="default" value={email} onChangeText={email => setEmail(email)}  />
 
                     <Text style={styles.label}>Senha:</Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" onChange={senha => setSenha(senha)} />
+                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
@@ -72,7 +61,10 @@ export default function login({navigation}) {
                 </View>
 
 
-               
+                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={styles.link} onPress={() => { navigation.navigate('cadastrarCoordenador') } }>Registrar nova escola</Text>
+
+                </View>
             </View>
 
 
@@ -84,28 +76,26 @@ export default function login({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#EFEFEF",
+        backgroundColor: "#32E535",
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: 'rgb(50, 229, 53);'
     },
 
     logoContainer: {
         top: 0,
-        height: '30%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        
     },
 
     logo: {
+        backgroundColor: 'red',
         width: 105,
     },
 
     formContainer: {
         width: '100%',
-        height: '70%',
+        height: '100%',
         bottom: 0,
         backgroundColor: '#fff',
         borderTopLeftRadius: 30,
@@ -151,7 +141,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
-
     botaoVoltar: {
         width: '100%',
         height: 44,
@@ -170,4 +159,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+   
 });

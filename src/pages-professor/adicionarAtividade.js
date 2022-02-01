@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import {
     StyleSheet,
     View,
@@ -18,25 +17,8 @@ import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
-export default function telaAluno({navigation}) {
-
-    const [getDados, setDados] = useState([])
-
-    useEffect(() => {
-        function consultarAlunos() {
-            axios.get('http://localhost:8080/sessorium/alunos')
-                .then(function (response) {
-                    setDados(response.data)
-                    console.log(response)
-                }).catch(function (error) {
-                    console.log('erro')
-                })
-        }
-
-        consultarAlunos()
-
-    }, [])
-    return (
+export default function adicionarAtividade({navigation}) {  
+    return  (
         <View style={{ height: "100%" }}>
             <LinearGradient style={styles.header}  colors={['#3ef741','#36f339']}>
                 <View style={styles.headerLogo}>
@@ -48,7 +30,7 @@ export default function telaAluno({navigation}) {
                 <View  style={styles.headerPerfil} >
                     <TouchableOpacity style={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'center',flex:1}} >
                         <View style={styles.perfilInfo}>
-                            <Text style={{ fontSize: 20, fontWeight: 600, color: 'white'}}>ALUNO NOME</Text>
+                            <Text style={{ fontSize: 20, fontWeight: 600, color: 'white'}}>Professor</Text>
                             <Text style={{ fontSize: 15, fontWeight: 400, color: 'white' }}>TURMA</Text>
                         </View>
 
@@ -68,56 +50,13 @@ export default function telaAluno({navigation}) {
 
             <ScrollView style={styles.main}>
                 <View style={styles.atividadesPendentesContainer}>
-                    <Text style={{ fontSize: 20, fontWeight: 600 }}>Atividades:</Text>
-                    <TouchableOpacity style={styles.atividadesPendentes} onPress={() => { navigation.navigate('atividades')  }}>
-                        <View
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                flexDirection: "row",
-                                height: "100%",
-                            }}
-                        >
-                            <View
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    paddingLeft: 5,
-                                    alignItems: "center",
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Text style={{ marginRight: 5, fontSize: 18, fontWeight: 600 }}>0</Text>{" "}
-                                <Text style={{ fontSize: 18, fontWeight: 600 }}>Atividades Pendentes</Text>
-                            </View>
-
-                            <View
-                                style={{ width: 30, height: 30}}
-                            >
-                                <Image
-                                    style={{width: 30, height: 30}}
-                                    source={require('../images/icon-seta.svg')}
-                                />
-
-                            </View>
-                        </View>
+                    <Text style={{ fontSize: 20, fontWeight: 600 }}>Adicionar atividade:</Text>
+                    <TouchableOpacity mode="contained"  style={styles.botaoLogin}>
+                        <Text style={{fontSize: 15, color: 'white'}}>Adicionar</Text>
                     </TouchableOpacity>
                 </View>
-
-                <View style={styles.materias}>
-                    <TouchableOpacity style={styles.materiaContainer}>
-                        <View style={styles.nomeMateria}>
-                            <Text style={{ fontSize: 25, fontWeight: 600, color: '#fff' }}>História</Text>
-                        </View>
-                        <View style={styles.professor}>
-                            <Text style={{ fontWeight: 600, fontSize: 16 }}>Professor:</Text>
-                            <Text style={{ fontWeight: 600, fontSize: 16 }}>
-                                NomeProfessor
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                
+                
             </ScrollView>
         </View>
     );
@@ -222,4 +161,18 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         backgroundColor: "#d6d6d6",
     },
+    botaoLogin: {
+        width: '90%',
+        height: 50,
+        marginVertical: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#32E535',
+        marginTop: '10%',
+        marginLeft: '5%'
+    }
 });
+
+                
+        

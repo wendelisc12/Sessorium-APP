@@ -17,41 +17,41 @@ export default function App() {
 
        <Text style={styles.inputNome_text}>Nome:</Text>
 
-        <TextInput style={styles.input}  placeholder='Digite o Nome'  placeholderTextColor={'gray'} value={nome} keyboardType='default' onChange={nome => setnome(nome)}></TextInput>
+        <TextInput style={styles.input}  placeholder='Digite o Nome'  placeholderTextColor={'gray'} value={nome} keyboardType='default' onChangeText={nome => setnome(nome)}></TextInput>
        
 
         <Text style={styles.inputTurno_text}>Turno:</Text>
-       <TextInput style={styles.input} placeholder='Digite o Turno' placeholderTextColor={'gray'} value={turno} keyboardType='default'  onChange={turno => setturno(turno)}></TextInput>
+       <TextInput style={styles.input} placeholder='Digite o Turno' placeholderTextColor={'gray'} value={turno} keyboardType='default'  onChangeText={turno => setturno(turno)}></TextInput>
          
 
         <Text style={styles.inputAno_text}>Ano:</Text>
-        <TextInput style={styles.input} placeholder='Digite o Ano' placeholderTextColor={'gray'} value={ano} keyboardType='default' onChange={ano => setano(ano)}></TextInput>
+        <TextInput style={styles.input} placeholder='Digite o Ano' placeholderTextColor={'gray'} value={ano} keyboardType='default' onChangeText={ano => setano(ano)}></TextInput>
 
         
         <Text style={styles.inputSemestre_text}>Semestre:</Text>
-        <TextInput style={styles.input} placeholder='Digite o Semestre' placeholderTextColor={'gray'} value={semestre} keyboardType='default' onChange={semestre => setsemestre(semestre)}></TextInput>
+        <TextInput style={styles.input} placeholder='Digite o Semestre' placeholderTextColor={'gray'} value={semestre} keyboardType='default' onChangeText={semestre => setsemestre(semestre)}></TextInput>
 
-        <TextInput style={styles.input}  placeholder='Nome'  placeholderTextColor={'gray'}  keyboardType='default' onChange={nome => setnome(nome)}></TextInput>
+        <TextInput style={styles.input}  placeholder='Nome'  placeholderTextColor={'gray'}  keyboardType='default' onChangeText={nome => setnome(nome)}></TextInput>
        
 
         <Text style={styles.inputTurno_text}>Turno:</Text>
-       <TextInput style={styles.input} placeholder='Turno' placeholderTextColor={'gray'} keyboardType='default'  onChange={turno => setturno(turno)}></TextInput>
+       <TextInput style={styles.input} placeholder='Turno' placeholderTextColor={'gray'} keyboardType='default'  onChangeText={turno => setturno(turno)}></TextInput>
          
 
         <Text style={styles.inputAno_text}>Ano:</Text>
-        <TextInput style={styles.input} placeholder='Ano' placeholderTextColor={'gray'} keyboardType='default' onChange={ano => setano(ano)}></TextInput>
+        <TextInput style={styles.input} placeholder='Ano' placeholderTextColor={'gray'} keyboardType='default' onChangeText={ano => setano(ano)}></TextInput>
 
         
         <Text style={styles.inputSemestre_text}>Semestre:</Text>
-        <TextInput style={styles.input} placeholder='Semestre' placeholderTextColor={'gray'} keyboardType='default' onChange={semestre => setsemestre(semestre)}></TextInput>
+        <TextInput style={styles.input} placeholder='Semestre' placeholderTextColor={'gray'} keyboardType='default' onChangeText={semestre => setsemestre(semestre)}></TextInput>
         
         
         <View style={styles.total_meses}>
         <Text style={styles.inputMeses_text}>Total de meses:</Text>
 
-        <TextInput style={styles.input} placeholder='Digite o total de meses' placeholderTextColor={'gray'} value={total_de_meses} keyboardType='default' onChange={total_de_meses => settotal_de_meses(total_de_meses)} ></TextInput>
+        <TextInput style={styles.input} placeholder='Digite o total de meses' placeholderTextColor={'gray'} value={total_de_meses} keyboardType='default' onChangeText={total_de_meses => settotal_de_meses(total_de_meses)} ></TextInput>
 
-        <TextInput style={styles.input} placeholder='total de meses' placeholderTextColor={'gray'}  keyboardType='default' onChange={total_de_meses => settotal_de_meses(total_de_meses)} ></TextInput>
+        <TextInput style={styles.input} placeholder='total de meses' placeholderTextColor={'gray'}  keyboardType='default' onChangeText={total_de_meses => settotal_de_meses(total_de_meses)} ></TextInput>
 
         </View>
         

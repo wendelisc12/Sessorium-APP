@@ -7,94 +7,98 @@ import { color } from 'react-native-elements/dist/helpers';
 
 const Stack = createNativeStackNavigator();
 
-export default function Painel({navigation}) {
+export default function Painel({ navigation }) {
 
-   
-    return (
 
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Sessorium</Text>
+  return (
 
-            <View style={styles.turmasContainer}>
-              <View>
-                <View style={{paddingVertical: 10}}>
-                  <Text style={{fontSize: 20, fontWeight: '700'}}>Bem vindo administrador</Text>
-                  <View style={{width: "100%", backgroundColor: '#C9C9C9', height: 1, marginTop: 10}}></View>
-                </View>
-                  <Text style={{marginBottom: 10}}>Adicione os funcionários da sua instituição</Text>
-                  <View>
-                    <TouchableOpacity style={styles.adicionarBotao} onPress={()=>{navigation.navigate('cadastrarProfessor')}}>
-                      <Text style={{color: 'white', fontSize: 18, fontWeight: '600'}}>Adicionar professor</Text>
-                    </TouchableOpacity>
+    <View style={styles.container}>
+      <Image
+        style={{ width: 160, height: 40, marginVertical: 20,
+          display: 'flex',
+          alignItems: 'center' }}
+        source={require('../images/logo.png')}
+      />
 
-                    <TouchableOpacity style={styles.adicionarBotao} onPress={()=>{navigation.navigate('cadastrarCoordenador') }}>
-                      <Text style={{color: 'white', fontSize: 18, fontWeight: '600'}}>Adicionar coordenador</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{width: "100%", backgroundColor: '#C9C9C9', height: 1, marginTop: 10}}></View>
-                  <Text style={{marginVertical: 10}}>Adicione as turmas da sua instituição</Text>
-                  <TouchableOpacity style={styles.adicionarBotao}>
-                      <Text style={{color: 'white', fontSize: 18, fontWeight: '600'}}>Criar turma</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+      <View style={styles.turmasContainer}>
+        <View>
+          <View style={{ paddingVertical: 10 }}>
+            <Text style={{ fontSize: 20, fontWeight: '700' }}>Bem vindo administrador</Text>
+            <View style={{ width: "100%", backgroundColor: '#C9C9C9', height: 1, marginTop: 10 }}></View>
+          </View>
+          <View>
+            <TouchableOpacity style={styles.adicionarBotao} onPress={() => { navigation.navigate('professores') }}>
+              <Text style={{ color: 'white', fontSize: 28, textAlign: 'center', fontWeight: '600' }}>Professores</Text>
+            </TouchableOpacity>
+          </View>
+          
+          <TouchableOpacity style={styles.adicionarBotao} onPress={() => { navigation.navigate('turmas') }}>
+            <Text style={{ color: 'white', fontSize: 28, textAlign: 'center', fontWeight: '600' }}>Turmas</Text>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.adicionarBotao} onPress={() => { navigation.navigate('alunos') }}>
+            <Text style={{ color: 'white', fontSize: 28, textAlign: 'center', fontWeight: '600' }}>Alunos</Text>
+          </TouchableOpacity>
         </View>
-    );
+      </View>
+
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#EFEFEF",
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        display:'flex',
-        
-    },
-
-   
-
-    turmasContainer:{
-        backgroundColor: 'white',
-        width:'100%',
-        flex: 1,
-        margin:10,
-        padding:30,
-        borderTopLeftRadius:30,
-        borderTopRightRadius:30,
-    },
-
-    titulo:{
-       height: 150,
-       display: 'flex',
-       alignItems: 'center'
-    },
-
-   
-
-    label: {
-        marginTop: 10,
-        marginBottom: 5
-    },
+  container: {
+    backgroundColor: "#EFEFEF",
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    display: 'flex',
+    height: '100%',
+  },
 
 
-    botaoEntrarTexto: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 18,
-    },
 
-    adicionarBotao:{
-        backgroundColor: '#32E535',
-        marginVertical: 5,
-        height: 50,
-        width: '100%',
-        borderRadius: 5,
-        display: 'flex',
-        alignContent: 'center',
-        justifyContent: 'center',
-        padding: 10,
-    },
+  turmasContainer: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    margin: 10,
+    padding: 30,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
+
+  titulo: {
+    height: 150,
+    display: 'flex',
+    alignItems: 'center'
+  },
+
+
+
+  label: {
+    marginTop: 10,
+    marginBottom: 5
+  },
+
+
+  botaoEntrarTexto: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+
+  adicionarBotao: {
+    backgroundColor: '#32E535',
+    marginVertical: 5,
+    height: 150,
+    width: '100%',
+    borderRadius: 5,
+    display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center',
+    padding: 10,
+  },
 
 
 });
