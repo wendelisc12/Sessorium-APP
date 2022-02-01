@@ -51,10 +51,9 @@ export default function loginProfessor({navigation}) {
                         style={{width:160, height: 40, marginLeft: 20}}
                         source={require('../images/logo.png')}
                     />
-
                 </View>
                 <View>
-                <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você estálogando como responsavel</Text>
+                <Text style={{ marginLeft: 35, fontSize: 20, textAlign:'center' }}>Você está logando como responsavel</Text>
                     <Text style={styles.label}>CNPJ:</Text>
                     <TextInput style={styles.input} placeholder="Digite seu CNPJ" keyboardType="default" onChange={cnpj => setCnpj(cnpj)} />
 
@@ -69,12 +68,6 @@ export default function loginProfessor({navigation}) {
                             <Text style={styles.botaoVoltarTexto}>voltar</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
-
-
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('cadastrarCoordenador') } }>Registrar nova escola</Text>
-
                 </View>
             </View>
 

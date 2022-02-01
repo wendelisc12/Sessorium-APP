@@ -60,6 +60,8 @@ export default function cadastrarProfessor() {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
+    
+
     return (
         <View style={styles.container}>
             
