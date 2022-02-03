@@ -39,7 +39,6 @@ export default function loginProfessor({navigation}) {
                         style={{width:160, height: 40, marginLeft: 20}}
                         source={require('../images/logo.png')}
                     />
-
                 </View>
                 <View>
                 <Text style={{ fontSize: 20, textAlign:'center' }}>Pai</Text>
@@ -57,12 +56,6 @@ export default function loginProfessor({navigation}) {
                             <Text style={styles.botaoVoltarTexto}>voltar</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
-
-
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('cadastrarCoordenador') } }>Registrar nova escola</Text>
-
                 </View>
             </View>
 

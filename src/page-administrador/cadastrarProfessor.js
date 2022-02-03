@@ -83,6 +83,8 @@ export default function cadastrarProfessor({navigation}) {
 
     }
 
+    
+
     return (
         <View style={styles.container}>
             

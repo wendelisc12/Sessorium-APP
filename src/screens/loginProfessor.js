@@ -61,10 +61,6 @@ export default function loginProfessor({navigation}) {
                 </View>
 
 
-                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={styles.link} onPress={() => { navigation.navigate('cadastrarCoordenador') } }>Registrar nova escola</Text>
-
-                </View>
             </View>
 
 
