@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Appbar } from 'react-native-paper';
+import axios from 'axios'
 
 
 
@@ -13,6 +14,22 @@ const Stack = createNativeStackNavigator();
 
 export default function Atividades({navigation}) {
 
+    const [getDados, setDados] = useState([])
+
+    useEffect(() => {
+        function consultarAtividades() {
+            axios.get('http://localhost:8080/sessorium/alunos')
+                .then(function (response) {
+                    setDados(response.data)
+                    console.log(response)
+                }).catch(function (error) {
+                    console.log('erro')
+                })
+        }
+
+        consultarAtividades()
+
+    }, [])
 
     return (
         <View style={{ flex: 1 }} >
@@ -27,18 +44,24 @@ export default function Atividades({navigation}) {
                 <View style={{ backgroundColor: '#ccc', height: 1, marginTop: 10 }}></View>
 
                 <ScrollView style={{ marginTop: 20 }}>
-                    <TouchableOpacity onPress={() => { navigation.navigate('atividade') }} style={{
-                        width: '100%', height: 140, border: '1px solid #ccc', marginHorizontal: 'auto', borderRadius: 20,
-                        boxShadow: '0px 5px 10px #ccc'
-                    }}>
-                        <View style={{borderBottomColor: '#ccc', borderBottomWidth: 1, padding: 10, display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                            <Text style={{fontSize: 16, fontWeight: 600}}>Atividade nome</Text>
-                            <View style={{width: 30, height: 20, backgroundColor: 'red', borderRadius: 5, marginRight: 10}}></View>
-                        </View>
-                        <View style={{padding: 10}}>
-                            <Text numberOfLines={4}>Descricao atividade</Text>
-                        </View>
-                    </TouchableOpacity>
+                    {
+                        getDados.map((l,i) => {
+                            <TouchableOpacity onPress={() => { navigation.navigate('atividade') }} style={{
+                                width: '100%', height: 140, border: '1px solid #ccc', marginHorizontal: 'auto', borderRadius: 20,
+                                boxShadow: '0px 5px 10px #ccc'
+                            }}>
+                                <View style={{borderBottomColor: '#ccc', borderBottomWidth: 1, padding: 10, display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                                    <Text style={{fontSize: 16, fontWeight: 600}}>Atividade nome</Text>
+                                    <View style={{width: 30, height: 20, backgroundColor: 'red', borderRadius: 5, marginRight: 10}}></View>
+                                </View>
+                                <View style={{padding: 10}}>
+                                    <Text numberOfLines={4}>Descricao atividade</Text>
+                                </View>
+                            </TouchableOpacity>
+                        })
+                        
+                    }
+
                 </ScrollView>
 
             </View>

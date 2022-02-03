@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 
@@ -34,53 +34,52 @@ export default function cadastrarProfessor({navigation}) {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
+    const [telefone, setTelefone] = useState("")
     const [cpf, setCpf] = useState("")
     const [dataNascimento, setDataNascimento] = useState("")
-    const [telefone, setTelefone] = useState("")
-    const [instituto, setInstituto] = useState("")
-    const [curso, setCurso] = useState("")
-    const [formacao, setFormacao] = useState("")
+    const [municipio, setMunicipio] = useState("")
+    const [uf,setUf] = useState("")
+    const [cursoNome, setCursoNome] = useState("")
     const [dataInicio, setDataInicio] = useState("")
     const [dataConclusao, setDataConclusao] = useState("")
+    const [instituto, setInstituto] = useState("")
+    const [formacao, setFormacao] = useState("")
     const [siape, setSiape] = useState("")
-    const[cep, setCep] = useState("")
-    const[rua, setRua] = useState("")
-    const[cidade, setCidade] = useState("")
-    const[bairro, setBairro] = useState("")
-    const[complemento, setComplemento] = useState("")
-    const[numero, setNumero] = useState("")
-    const [senha, setSenha] = useState("")
-    const [confirmarsenha, setConfirmarsenha] = useState("")
 
-    async function cadastrarDado(){
-        axios.post('http://localhost:8080/sessorium/professor', {
+    function cadastrarDado(){
+
+
+        let professor = {
             nome: nome,
-            email: email,
-            cpf: cpf,
-            dataNascimento: dataNascimento,
-            telefone: telefone,
-            instituto: instituto,
-            curso: curso,
-            formacao: formacao,
-            dataInicio: dataInicio,
-            dataConclusao: dataConclusao,
-            siape: siape,
-            cep: cep,
-            rua: rua,
-            cidade: cidade,
-            bairro: bairro,
-            complemento: complemento,
-            numero: numero
-            
-            
-        })
-            .then(function (response) {
-                console.log(response);
-                navigation.navigate('Contatos');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            email: 'null',
+            telefone: 'null',
+            cpf: 'null',
+            dataNascimento: 'null',
+            municipio: 'null',
+            uf: 'null',
+            cursoNome: 'null',
+            dataInicio: 'null',
+            dataConclusao: 'null',
+            instituto: 'null',
+            siape: 'null'
+        }
+        
+        axios.post("http://localhost:8080/sessorium/professor", professor, {
+        headers: {'Content-Type': 'application/json'}
+      }).then(function(response) {
+        console.log(response);
+      }).catch(function(error) {
+        console.log(error);
+      })
+
+        // axios.post('http://localhost:8080/sessorium/professor', professor)
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error.response.data);
+        //         console.log('no')
+        //     });
 
     }
 
@@ -109,7 +108,7 @@ export default function cadastrarProfessor({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChangeText={cpf => setCpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite sua data de nascimento" keyboardType="default" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
 
                     <Text style={styles.label}>Telefone: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChangeText={telefone => setTelefone(telefone)} />
@@ -119,49 +118,8 @@ export default function cadastrarProfessor({navigation}) {
                     <Text style={styles.label}>Instituição: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituto} onChangeText={instituto => setInstituto(instituto)} />
 
-                    <Text style={styles.label}>Curso: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChangeText={curso => setCurso(curso)} />
-
-                    <Text style={styles.label}>Formação: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChangeText={formacao => setFormacao(formacao)} />
-                    
-                    <Text style={styles.label}>Data de inicio: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={dataInicio}  onChangeText={dataInicio => setDataInicio(dataInicio)} />
-
-                    <Text style={styles.label}>Data de conclusão: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={dataConclusao}  onChangeText={dataConclusao => setDataConclusao(dataConclusao)} />
-
                     <Text style={styles.label}>Siape: </Text>
                     <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape}  onChangeText={siape => setSiape(siape)} />
-
-                    <Text style={styles.titulos}>Endereço</Text>
-
-                    <Text style={styles.label}>CEP: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChangeText={cep => setCep(cep)} />
-
-                    <Text style={styles.label}>Rua: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
-
-                    <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChangeText={cidade => setCidade(cidade)} />
-
-                    <Text style={styles.label}>Bairro: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
-
-                    <Text style={styles.label}>complemento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChangeText={complemento => setComplemento(complemento)} />
-
-                    <Text style={styles.label}>Número: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChangeText={numero => setNumero(numero)} />
-
-                    <Text style={styles.titulos}>Acesso</Text>
-
-                    <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha}  onChangeText={senha => setSenha(senha)} />
-
-                    <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default"  onChangeText={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
-
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => cadastrarDado()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>

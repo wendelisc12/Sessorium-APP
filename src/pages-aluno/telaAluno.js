@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
+import axios from 'axios'
 import {
     StyleSheet,
     View,
@@ -106,7 +107,7 @@ export default function telaAluno({navigation}) {
                 </View>
 
                 <View style={styles.materias}>
-                    <TouchableOpacity style={styles.materiaContainer}>
+                    <TouchableOpacity style={styles.materiaContainer}  onPress={() => { navigation.navigate('atividade')  }}>
                         <View style={styles.nomeMateria}>
                             <Text style={{ fontSize: 25, fontWeight: 600, color: '#fff' }}>História</Text>
                         </View>

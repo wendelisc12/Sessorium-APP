@@ -17,7 +17,7 @@ import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
-export default function telaPais({navigation}) {
+export default function Boletim() {
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.logoContainer}>
