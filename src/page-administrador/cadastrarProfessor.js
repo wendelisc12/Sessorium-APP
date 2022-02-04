@@ -64,7 +64,7 @@ export default function cadastrarProfessor({navigation}) {
             siape: 'null'
         }
         
-        axios.post("http://localhost:8080/sessorium/professor", professor, {
+        axios.post("http://localhost:8080/sessorium/professor", professor {
         headers: {'Content-Type': 'application/json'}
       }).then(function(response) {
         console.log(response);
