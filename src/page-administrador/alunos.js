@@ -97,11 +97,11 @@ export default function Alunos({ route,navigation }) {
                     }
                     
 
-
-
-
-
-
+                </View>
+                <View style={{alignItems: 'center', display: "flex", justifyContent: "center"}}>
+                    <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('painel')  }}>
+                                <Text style={styles.botaoVoltarTexto}>voltar</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -148,6 +148,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
+        marginTop: 20,
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
 
     adicionarBotao: {
         backgroundColor: '#32E535',

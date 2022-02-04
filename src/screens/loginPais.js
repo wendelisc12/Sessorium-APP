@@ -9,7 +9,7 @@ import { initializeApp } from "firebase/app";
 
 const Stack = createNativeStackNavigator();
 
-export default function loginProfessor({navigation}) {
+export default function loginPais({navigation}) {
 
     const [cnpj, setCnpj] = useState("")
     const [senha, setSenha] = useState("")

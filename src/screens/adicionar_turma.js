@@ -59,6 +59,9 @@ export default function App() {
         <TouchableOpacity style={styles.botao_cadastrar}>
            <Text style={styles.cadastrar}>Cadastrar</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('turmas')  }}>
+            <Text style={styles.botaoVoltarTexto}>voltar</Text>
+        </TouchableOpacity>
 
 
       <StatusBar style="auto" />
@@ -109,6 +112,25 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderColor:'#000',
   },
+
+  botaoVoltar: {
+    width: '80%',
+    height: 44,
+    backgroundColor: 'transparent',
+    borderRadius: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid #32E535',
+    marginTop: 20,
+    marginBottom: 40,
+},
+
+botaoVoltarTexto: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 18,
+},
   cadastrar: {
     color: 'white',
     marginTop:12,

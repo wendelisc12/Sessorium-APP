@@ -28,8 +28,15 @@ import boletim from './src/pages-aluno/boletim';
 import turmas from './src/page-administrador/turmas';
 import professorDetalhes from './src/page-administrador/professorDetalhes';
 import cadastrarCoordenador from './src/screens/cadastrarcoordenador';
-import adicionarAtividade from '.src/screens/adicionarAtividade';
-import cadastroAtividade from '.src/screens/cadastroAtividade';
+import adicionar_turma from './src/screens/adicionar_turma'
+
+//import adicionarAtividade from '.src/screens/adicionarAtividade';
+//import cadastroAtividade from '.src/screens/cadastroAtividade';
+
+
+
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +58,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-       <Stack.Navigator initialRouteName="painel" >
+       <Stack.Navigator initialRouteName="loginSeletivo" >
         <Stack.Screen name="login" component={login} options={{headerShown: false}}/>
         <Stack.Screen name="loginAdministrador" component={loginAdministrador} options={{headerShown: false}} />
         <Stack.Screen name="loginProfessor" component={loginProfessor} options={{headerShown: false}} />
@@ -73,8 +80,8 @@ export default function App() {
         <Stack.Screen name="turmas" component={turmas} options={{headerShown: false}} />
         <Stack.Screen name="professorDetalhes" component={professorDetalhes} options={{title: ""}} />
         <Stack.Screen name="cadastrarCoordenador" component={cadastrarCoordenador} options={{headerShown: false}} />
-        <Stack.Screen name="adicionarAtividade" component={adicionarAtividade} options={{headerShown: false}} />
-        <Stack.Screen name="cadastroAtividade" component={cadastroAtividade} options={{headerShown: false}} />
+        <Stack.Screen name="adicionarTurma" component={adicionar_turma} options={{headerShown: false}} />
+        
 
 
 

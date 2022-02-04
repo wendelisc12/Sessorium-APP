@@ -8,9 +8,6 @@ import {
     TouchableOpacity,
     ScrollView
 } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
-import Routes from "../screens/TelaAlunoRotas";
-import { NavigationContainer } from "@react-navigation/native";
 import { Avatar, Button } from 'react-native-paper';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Appbar } from "react-native-paper";

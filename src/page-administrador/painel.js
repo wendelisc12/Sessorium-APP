@@ -32,10 +32,6 @@ export default function Painel({ navigation }) {
             </TouchableOpacity>
           </View>
           
-          <TouchableOpacity style={styles.adicionarBotao} onPress={() => { navigation.navigate('turmas') }}>
-            <Text style={{ color: 'white', fontSize: 28, textAlign: 'center', fontWeight: '600' }}>Turmas</Text>
-          </TouchableOpacity>
-
           <TouchableOpacity style={styles.adicionarBotao} onPress={() => { navigation.navigate('alunos') }}>
             <Text style={{ color: 'white', fontSize: 28, textAlign: 'center', fontWeight: '600' }}>Alunos</Text>
           </TouchableOpacity>

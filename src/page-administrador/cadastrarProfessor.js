@@ -38,19 +38,17 @@ export default function cadastrarProfessor({navigation}) {
     const [dataNascimento, setDataNascimento] = useState("")
     const [telefone, setTelefone] = useState("")
     const [instituto, setInstituto] = useState("")
-    const [curso, setCurso] = useState("")
+    const [cursoNome, setCursoNome] = useState("")
     const [formacao, setFormacao] = useState("")
     const [dataInicio, setDataInicio] = useState("")
     const [dataConclusao, setDataConclusao] = useState("")
     const [siape, setSiape] = useState("")
     const[cep, setCep] = useState("")
     const[rua, setRua] = useState("")
-    const[cidade, setCidade] = useState("")
+    const[municipio, setMunicipio] = useState("")
     const[bairro, setBairro] = useState("")
     const[complemento, setComplemento] = useState("")
     const[numero, setNumero] = useState("")
-    const [senha, setSenha] = useState("")
-    const [confirmarsenha, setConfirmarsenha] = useState("")
 
     async function cadastrarDado(){
         axios.post('http://localhost:8080/sessorium/professor', {
@@ -60,14 +58,14 @@ export default function cadastrarProfessor({navigation}) {
             dataNascimento: dataNascimento,
             telefone: telefone,
             instituto: instituto,
-            curso: curso,
+            cursoNome: cursoNome,
             formacao: formacao,
             dataInicio: dataInicio,
             dataConclusao: dataConclusao,
             siape: siape,
             cep: cep,
             rua: rua,
-            cidade: cidade,
+            municipio: municipio,
             bairro: bairro,
             complemento: complemento,
             numero: numero
@@ -122,7 +120,7 @@ export default function cadastrarProfessor({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituto} onChangeText={instituto => setInstituto(instituto)} />
 
                     <Text style={styles.label}>Curso: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={curso} onChangeText={curso => setCurso(curso)} />
+                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={cursoNome} onChangeText={cursoNome => setCursoNome(cursoNome)} />
 
                     <Text style={styles.label}>Formação: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChangeText={formacao => setFormacao(formacao)} />
@@ -144,8 +142,8 @@ export default function cadastrarProfessor({navigation}) {
                     <Text style={styles.label}>Rua: </Text>
                     <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
 
-                    <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChangeText={cidade => setCidade(cidade)} />
+                    <Text style={styles.label}>Municipio: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={municipio} onChangeText={municipio => setMunicipio(municipio)} />
 
                     <Text style={styles.label}>Bairro: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
@@ -167,6 +165,9 @@ export default function cadastrarProfessor({navigation}) {
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => cadastrarDado()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('professores')  }}>
+                            <Text style={styles.botaoVoltarTexto}>voltar</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -254,6 +255,31 @@ const styles = StyleSheet.create({
 
     botaoEntrarTexto: {
         color: 'white',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
+    botaoEntrarTexto: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
+        marginTop: 20,
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
         fontWeight: 'bold',
         fontSize: 18,
     },

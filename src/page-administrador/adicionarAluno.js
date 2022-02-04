@@ -40,11 +40,10 @@ export default function adicionarAluno({ navigation }) {
     const[matricula, setMatricula] = useState("")
     const[cep, setCep] = useState("")
     const[rua, setRua] = useState("")
-    const[cidade, setCidade] = useState("")
+    const[municipio, setMunicipio] = useState("")
     const[bairro, setBairro] = useState("")
     const[complemento, setComplemento] = useState("")
     const[numero, setNumero] = useState("")
-    const[senha, setSenha] = useState("")
 
     async function cadastrarAluno(){
         axios.post('http://localhost:8080/sessorium/aluno', {
@@ -88,26 +87,7 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.label}>Matrícula: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua matrícula" keyboardType="default" value={matricula} onChangeText={matricula => setMatricula(matricula)} />
 
-                    {/* <Text style={styles.label}>Possui alguma deficiência? </Text>
-                    <TextInput style={styles.input} placeholder="Digite caso tenha" keyboardType="default" value={def} onChangeText={curso => setCurso(curso)} /> */}
-
-                    {/* <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
-                    <Text style={styles.titulos}>Informações do responsável</Text>
-
-                    <Text style={styles.label}>Nome do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o nome" keyboardType="default" value={nomeResponsavel} onChangeText={nomeResponsavel => setNomeResponsavel(nomeResponsavel)} />
-
-                    <Text style={styles.label}>Email do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o email" keyboardType="default" value={emailResponsavel} onChangeText={emailResponsavel => setEmailResponsavel(emailResponsavel)} />
-
-                    <Text style={styles.label}>CPF do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o CPF" keyboardType="default" value={cpfResponsavel} onChangeText={cpfResponsavel => setCpfResponsavel(cpfResponsavel)} />
-
-                    <Text style={styles.label}>Data de nascimento do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de nascimento" keyboardType="default" value={dataNascimentoResponsavel} onChangeText={dataNascimentoResponsavel => setDataNascimentoResponsavel(dataNascimentoResponsavel)} />
-
-                    <Text style={styles.label}>Telefone do responsável: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o telefone" keyboardType="default" value={telefoneResponsavel} onChangeText={telefoneResponsavel => setTelefoneResponsavel(telefoneResponsavel)} /> */}
+                 
 
                     <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
                     <Text style={styles.titulos}>Endereço</Text>
@@ -118,8 +98,8 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.label}>Rua: </Text>
                     <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
 
-                    <Text style={styles.label}>Cidade: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={cidade} onChangeText={cidade => setCidade(cidade)} />
+                    <Text style={styles.label}>municipio: </Text>
+                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={municipio} onChangeText={municipio => setMunicipio(municipio)} />
 
                     <Text style={styles.label}>Bairro: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
@@ -130,15 +110,14 @@ export default function adicionarAluno({ navigation }) {
                     <Text style={styles.label}>Número: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChangeText={numero => setNumero(numero)} />
 
-                    <View style={{ width: '100%', backgroundColor: '#D3D3D3', height: 1, marginTop: 30 }}></View>
-                    <Text style={styles.titulos}>Acesso</Text>
 
-                    <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={()=> cadastrarAluno()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('turmas')  }}>
+                                <Text style={styles.botaoVoltarTexto}>voltar</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -215,6 +194,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
+        marginTop: 20,
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
 
     botaoEntrarContainer: {
         display: 'flex',

@@ -36,10 +36,6 @@ export default function loginSeletivo({navigation}) {
                     <Button icon="account" mode="contained" onPress={() => { navigation.navigate('loginProfessor') } } style={styles.botaoLogin}>
                         Professor
                     </Button>
-
-                    <Button icon="account" mode="contained" onPress={() => { navigation.navigate('loginPais') } } style={styles.botaoLogin}>
-                        Pai
-                    </Button>
                 </View>
 
                 <View style={{paddingBottom: 20}}>

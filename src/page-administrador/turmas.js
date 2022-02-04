@@ -58,7 +58,7 @@ export default function Turmas({ navigation }) {
                     justifyContent: 'center',
                     padding: 10,
                 }}
-                onPress={() => { navigation.navigate('adicionarAluno') }}>
+                onPress={() => { navigation.navigate('adicionarTurma') }}>
                     <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', fontWeight: '600' }}>Adicionar turma</Text>
                 </TouchableOpacity>
                 <Text style={{ fontSize: 20, fontWeight: "700", borderTopColor: '#ccc', borderTopWidth: 1, paddingTop: 15 }}>
@@ -91,6 +91,11 @@ export default function Turmas({ navigation }) {
 
 
 
+                </View>
+                <View style={{alignItems: 'center', display: "flex", justifyContent: "center"}}>
+                    <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('painel')  }}>
+                                <Text style={styles.botaoVoltarTexto}>voltar</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -137,6 +142,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+
+    botaoVoltar: {
+        width: '80%',
+        height: 44,
+        backgroundColor: 'transparent',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid #32E535',
+        marginTop: 20,
+        marginBottom: 40,
+    },
+
+    botaoVoltarTexto: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+
 
     adicionarBotao: {
         backgroundColor: '#32E535',

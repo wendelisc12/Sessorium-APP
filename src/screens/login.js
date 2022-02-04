@@ -11,6 +11,7 @@ import { initializeApp } from "firebase/app";
 const Stack = createNativeStackNavigator();
 
 export default function login({navigation}) {
+    
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
