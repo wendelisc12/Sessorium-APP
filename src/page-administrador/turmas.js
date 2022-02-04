@@ -58,7 +58,11 @@ export default function Turmas({ navigation }) {
                     justifyContent: 'center',
                     padding: 10,
                 }}
+<<<<<<< HEAD
                 onPress={() => { navigation.navigate('adicionarTurma') }}>
+=======
+                onPress={() => { navigation.navigate('cadastrarTurma') }}>
+>>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
                     <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', fontWeight: '600' }}>Adicionar turma</Text>
                 </TouchableOpacity>
                 <Text style={{ fontSize: 20, fontWeight: "700", borderTopColor: '#ccc', borderTopWidth: 1, paddingTop: 15 }}>

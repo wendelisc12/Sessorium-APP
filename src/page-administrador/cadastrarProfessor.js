@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 
@@ -34,28 +34,44 @@ export default function cadastrarProfessor({navigation}) {
 
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
+    const [telefone, setTelefone] = useState("")
     const [cpf, setCpf] = useState("")
     const [dataNascimento, setDataNascimento] = useState("")
+<<<<<<< HEAD
     const [telefone, setTelefone] = useState("")
     const [instituto, setInstituto] = useState("")
     const [cursoNome, setCursoNome] = useState("")
     const [formacao, setFormacao] = useState("")
+=======
+    const [municipio, setMunicipio] = useState("")
+    const [uf,setUf] = useState("")
+    const [cursoNome, setCursoNome] = useState("")
+>>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
     const [dataInicio, setDataInicio] = useState("")
     const [dataConclusao, setDataConclusao] = useState("")
+    const [instituto, setInstituto] = useState("")
+    const [formacao, setFormacao] = useState("")
     const [siape, setSiape] = useState("")
+<<<<<<< HEAD
     const[cep, setCep] = useState("")
     const[rua, setRua] = useState("")
     const[municipio, setMunicipio] = useState("")
     const[bairro, setBairro] = useState("")
     const[complemento, setComplemento] = useState("")
     const[numero, setNumero] = useState("")
+=======
+>>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
 
-    async function cadastrarDado(){
-        axios.post('http://localhost:8080/sessorium/professor', {
+    function cadastrarDado(){
+
+
+        let professor = {
             nome: nome,
             email: email,
+            telefone: telefone,
             cpf: cpf,
             dataNascimento: dataNascimento,
+<<<<<<< HEAD
             telefone: telefone,
             instituto: instituto,
             cursoNome: cursoNome,
@@ -79,6 +95,33 @@ export default function cadastrarProfessor({navigation}) {
             .catch(function (error) {
                 console.log(error);
             });
+=======
+            municipio: municipio,
+            uf: uf,
+            cursoNome: cursoNome,
+            dataInicio: dataInicio,
+            dataConclusao: dataConclusao,
+            instituto: instituto,
+            siape: siape
+        }
+        
+        axios.post("http://localhost:8080/sessorium/professor", professor ,{
+        headers: {'Content-Type': 'application/json'}
+      }).then(function(response) {
+        console.log(response);
+      }).catch(function(error) {
+        console.log(error);
+      })
+
+        // axios.post('http://localhost:8080/sessorium/professor', professor)
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error.response.data);
+        //         console.log('no')
+        //     });
+>>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
 
     }
 
@@ -109,7 +152,7 @@ export default function cadastrarProfessor({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite o cpf" keyboardType="default" value={cpf} onChangeText={cpf => setCpf(cpf)} />
 
                     <Text style={styles.label}>Data de nascimento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua data de nascimento" keyboardType="default" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
+                    <TextInput style={styles.input} placeholder="Digite sua data de nascimento" keyboardType="default" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
 
                     <Text style={styles.label}>Telefone: </Text>
                     <TextInput style={styles.input} placeholder="Digite seu telefone" keyboardType="default" value={telefone} onChangeText={telefone => setTelefone(telefone)} />
@@ -119,6 +162,7 @@ export default function cadastrarProfessor({navigation}) {
                     <Text style={styles.label}>Instituição: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituto} onChangeText={instituto => setInstituto(instituto)} />
 
+<<<<<<< HEAD
                     <Text style={styles.label}>Curso: </Text>
                     <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={cursoNome} onChangeText={cursoNome => setCursoNome(cursoNome)} />
 
@@ -162,6 +206,10 @@ export default function cadastrarProfessor({navigation}) {
                     <Text style={styles.label}>Confirmar senha: </Text>
                     <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default"  onChangeText={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
 
+=======
+                    <Text style={styles.label}>Siape: </Text>
+                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape}  onChangeText={siape => setSiape(siape)} />
+>>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => cadastrarDado()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>

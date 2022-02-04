@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { initializeApp } from "firebase/app";
+import TelaAlunoRotas from './TelaAlunoRotas';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export default function login({navigation}) {
         signInWithEmailAndPassword(auth, email, senha)
           .then((userCredential) => {
             console.log('conectado');
+            navigation.navigate('telaAlunoRotas')
             const user = userCredential.user;
             // ...
           })
@@ -52,7 +54,7 @@ export default function login({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
-                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
+                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => loginFirebase()}>
                             <Text style={styles.botaoEntrarTexto}>Entrar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginSeletivo')  }}>

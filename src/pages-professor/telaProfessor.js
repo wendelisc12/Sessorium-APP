@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import {
     StyleSheet,
     View,
@@ -10,14 +9,16 @@ import {
     ScrollView
 } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import Routes from "../screens/TelaAlunoRotas";
+import { NavigationContainer } from "@react-navigation/native";
 import { Avatar, Button } from 'react-native-paper';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
-export default function telaProfessor() {
-    return (
+export default function telaProfessor({navigation}) {  
+    return  (
         <View style={{ height: "100%" }}>
             <LinearGradient style={styles.header}  colors={['#3ef741','#36f339']}>
                 <View style={styles.headerLogo}>
@@ -29,7 +30,7 @@ export default function telaProfessor() {
                 <View  style={styles.headerPerfil} >
                     <TouchableOpacity style={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'center',flex:1}} >
                         <View style={styles.perfilInfo}>
-                            <Text style={{ fontSize: 20, fontWeight: 600, color: 'white'}}>PROFESSOR NOME</Text>
+                            <Text style={{ fontSize: 20, fontWeight: 600, color: 'white'}}>Professor</Text>
                             <Text style={{ fontSize: 15, fontWeight: 400, color: 'white' }}>TURMA</Text>
                         </View>
 
@@ -48,20 +49,14 @@ export default function telaProfessor() {
             </LinearGradient>
 
             <ScrollView style={styles.main}>
-
-                <View style={styles.materias}>
-                    <TouchableOpacity style={styles.materiaContainer}>
-                        <View style={styles.nomeMateria}>
-                            <Text style={{ fontSize: 25, fontWeight: 600, color: '#fff' }}>História</Text>
-                        </View>
-                        <View style={styles.professor}>
-                            <Text style={{ fontWeight: 600, fontSize: 16 }}>Professor:</Text>
-                            <Text style={{ fontWeight: 600, fontSize: 16 }}>
-                                NomeProfessor
-                            </Text>
-                        </View>
+                <View style={styles.atividadesPendentesContainer}>
+                    <Text style={{ fontSize: 20, fontWeight: 600 }}>Adicionar atividade:</Text>
+                    <TouchableOpacity mode="contained"  style={styles.botaoLogin} onPress={() => {navigation.navigate('cadastroAtividade')}}>
+                        <Text style={{fontSize: 15, color: 'white'}}>Adicionar</Text>
                     </TouchableOpacity>
                 </View>
+                
+                
             </ScrollView>
         </View>
     );
@@ -166,4 +161,18 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         backgroundColor: "#d6d6d6",
     },
+    botaoLogin: {
+        width: '90%',
+        height: 50,
+        marginVertical: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#32E535',
+        marginTop: '10%',
+        marginLeft: '5%'
+    }
 });
+
+                
+        

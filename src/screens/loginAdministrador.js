@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { initializeApp } from "firebase/app";
+import Painel from '../page-administrador/painel';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +50,7 @@ export default function loginAdministrador({navigation}) {
                     <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha} onChangeText={senha => setSenha(senha)} />
 
                     <View style={styles.botaoEntrarContainer}>
-                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => {loginFirebase}}>
+                        <TouchableOpacity style={styles.botaoEntrar} onPress={() => {navigation.navigate('painel')}}>
                             <Text style={styles.botaoEntrarTexto}>Entrar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.botaoVoltar} onPress={() => { navigation.navigate('loginSeletivo')  }}>
