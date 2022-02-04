@@ -37,30 +37,14 @@ export default function cadastrarProfessor({navigation}) {
     const [telefone, setTelefone] = useState("")
     const [cpf, setCpf] = useState("")
     const [dataNascimento, setDataNascimento] = useState("")
-<<<<<<< HEAD
-    const [telefone, setTelefone] = useState("")
-    const [instituto, setInstituto] = useState("")
-    const [cursoNome, setCursoNome] = useState("")
-    const [formacao, setFormacao] = useState("")
-=======
     const [municipio, setMunicipio] = useState("")
     const [uf,setUf] = useState("")
     const [cursoNome, setCursoNome] = useState("")
->>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
     const [dataInicio, setDataInicio] = useState("")
     const [dataConclusao, setDataConclusao] = useState("")
     const [instituto, setInstituto] = useState("")
     const [formacao, setFormacao] = useState("")
     const [siape, setSiape] = useState("")
-<<<<<<< HEAD
-    const[cep, setCep] = useState("")
-    const[rua, setRua] = useState("")
-    const[municipio, setMunicipio] = useState("")
-    const[bairro, setBairro] = useState("")
-    const[complemento, setComplemento] = useState("")
-    const[numero, setNumero] = useState("")
-=======
->>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
 
     function cadastrarDado(){
 
@@ -71,31 +55,6 @@ export default function cadastrarProfessor({navigation}) {
             telefone: telefone,
             cpf: cpf,
             dataNascimento: dataNascimento,
-<<<<<<< HEAD
-            telefone: telefone,
-            instituto: instituto,
-            cursoNome: cursoNome,
-            formacao: formacao,
-            dataInicio: dataInicio,
-            dataConclusao: dataConclusao,
-            siape: siape,
-            cep: cep,
-            rua: rua,
-            municipio: municipio,
-            bairro: bairro,
-            complemento: complemento,
-            numero: numero
-            
-            
-        })
-            .then(function (response) {
-                console.log(response);
-                navigation.navigate('Contatos');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-=======
             municipio: municipio,
             uf: uf,
             cursoNome: cursoNome,
@@ -121,7 +80,6 @@ export default function cadastrarProfessor({navigation}) {
         //         console.log(error.response.data);
         //         console.log('no')
         //     });
->>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
 
     }
 
@@ -162,54 +120,8 @@ export default function cadastrarProfessor({navigation}) {
                     <Text style={styles.label}>Instituição: </Text>
                     <TextInput style={styles.input} placeholder="Digite a sua instituição" keyboardType="default" value={instituto} onChangeText={instituto => setInstituto(instituto)} />
 
-<<<<<<< HEAD
-                    <Text style={styles.label}>Curso: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu curso" keyboardType="default" value={cursoNome} onChangeText={cursoNome => setCursoNome(cursoNome)} />
-
-                    <Text style={styles.label}>Formação: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a sua formação" keyboardType="default" value={formacao} onChangeText={formacao => setFormacao(formacao)} />
-                    
-                    <Text style={styles.label}>Data de inicio: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de inicio" keyboardType="default" value={dataInicio}  onChangeText={dataInicio => setDataInicio(dataInicio)} />
-
-                    <Text style={styles.label}>Data de conclusão: </Text>
-                    <TextInput style={styles.input} placeholder="Digite a data de conclusão" keyboardType="default" value={dataConclusao}  onChangeText={dataConclusao => setDataConclusao(dataConclusao)} />
-
                     <Text style={styles.label}>Siape: </Text>
                     <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape}  onChangeText={siape => setSiape(siape)} />
-
-                    <Text style={styles.titulos}>Endereço</Text>
-
-                    <Text style={styles.label}>CEP: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu endereço" keyboardType="default" value={cep} onChangeText={cep => setCep(cep)} />
-
-                    <Text style={styles.label}>Rua: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua UF" keyboardType="default" value={rua} onChangeText={rua => setRua(rua)} />
-
-                    <Text style={styles.label}>Municipio: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua cidade" keyboardType="default" value={municipio} onChangeText={municipio => setMunicipio(municipio)} />
-
-                    <Text style={styles.label}>Bairro: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu bairro" keyboardType="default" value={bairro} onChangeText={bairro => setBairro(bairro)} />
-
-                    <Text style={styles.label}>complemento: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o complemento" keyboardType="default" value={complemento} onChangeText={complemento => setComplemento(complemento)} />
-
-                    <Text style={styles.label}>Número: </Text>
-                    <TextInput style={styles.input} placeholder="Digite seu número" keyboardType="default" value={numero} onChangeText={numero => setNumero(numero)} />
-
-                    <Text style={styles.titulos}>Acesso</Text>
-
-                    <Text style={styles.label}>Senha: </Text>
-                    <TextInput style={styles.input} placeholder="Digite sua Senha" keyboardType="default" value={senha}  onChangeText={senha => setSenha(senha)} />
-
-                    <Text style={styles.label}>Confirmar senha: </Text>
-                    <TextInput style={styles.input} placeholder="Confirme sua senha" keyboardType="default"  onChangeText={confirmarsenha => setConfirmarsenha(confirmarsenha)} />
-
-=======
-                    <Text style={styles.label}>Siape: </Text>
-                    <TextInput style={styles.input} placeholder="Digite o seu Siape" keyboardType="default" value={siape}  onChangeText={siape => setSiape(siape)} />
->>>>>>> 1ab979e76be0f9473fa9bc05b655720cb3280e70
                     <View style={styles.botaoEntrarContainer}>
                         <TouchableOpacity style={styles.botaoEntrar} onPress={() => cadastrarDado()}>
                             <Text style={styles.botaoEntrarTexto}>Enviar</Text>

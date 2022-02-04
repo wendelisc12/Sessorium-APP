@@ -29,7 +29,6 @@ import turmas from './src/page-administrador/turmas';
 import professorDetalhes from './src/page-administrador/professorDetalhes';
 import cadastrarCoordenador from './src/screens/cadastrarcoordenador'
 import cadastrarTurma from './src/screens/cadastrarTurma'
-import cadastroAtividade from './src/pages-professor/cadastroAtividade'
 import boletimPai from './src/screens/boletimPai'
 
 const Stack = createNativeStackNavigator();
