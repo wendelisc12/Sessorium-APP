@@ -51,20 +51,20 @@ export default function cadastrarProfessor({navigation}) {
 
         let professor = {
             nome: nome,
-            email: 'null',
-            telefone: 'null',
-            cpf: 'null',
-            dataNascimento: 'null',
-            municipio: 'null',
-            uf: 'null',
-            cursoNome: 'null',
-            dataInicio: 'null',
-            dataConclusao: 'null',
-            instituto: 'null',
-            siape: 'null'
+            email: email,
+            telefone: telefone,
+            cpf: cpf,
+            dataNascimento: dataNascimento,
+            municipio: municipio,
+            uf: uf,
+            cursoNome: cursoNome,
+            dataInicio: dataInicio,
+            dataConclusao: dataConclusao,
+            instituto: instituto,
+            siape: siape
         }
         
-        axios.post("http://localhost:8080/sessorium/professor", professor {
+        axios.post("http://localhost:8080/sessorium/professor", professor ,{
         headers: {'Content-Type': 'application/json'}
       }).then(function(response) {
         console.log(response);
